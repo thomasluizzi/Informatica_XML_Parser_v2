@@ -1,0 +1,144 @@
+1: s_UpdateRoadwayLinearData
+$Source connection value: Relational:Taris
+$Target connection value: Relational:Taris
+	RoadwayLinearData
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	SQ_stgEndPointData
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpRdwyLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+-------------------------------------------------------------------------
+2: s_RdwyExplodeLinearData
+$Source connection value: 
+$Target connection value: 
+	sp_LoadstgEndPointData
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:TARISWriter
+	SR395Fix
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:StagingRoadwayWriter
+	sp_LoadMissingARM
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:StagingRoadwayWriter
+	sp_AddIdentityColumhn
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:StagingRoadwayWriter
+	sp_DeleteMultipleARM
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:StagingRoadwayWriter
+	sp_DropIdentityColumhn
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:StagingRoadwayWriter
+	RoadwayLinearData
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	lkpRecordType1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpRecordType2SpeedIncr
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpStreetNameAlias
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	SQ_stgARMToSRMP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	lkpRecord_Type_3
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpstgEndPoints
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpRecordType2SpeedDecr
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpStgLegislativeDistrict
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+-------------------------------------------------------------------------
+3: s_stgLegislativeDistrictNew
+$Source connection value: Relational:RoadwayDataMartReader
+$Target connection value: Relational:StagingRoadwayWriter
+	StgLegislativeDistrict
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_SRLocationReferenceCurrent
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpStateRoute
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpRoadwayGeometric
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpSRLocationReferenceCurrent
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgNewLegDistsInc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpstgNewLegDistsDec
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+-------------------------------------------------------------------------
+4: s_ARMOut
+$Source connection value: 
+$Target connection value: 
+	armcalcinput
+		 SUBTYPE: File Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	SQ_vw_GenerateARMCalcFile
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+-------------------------------------------------------------------------
+5: s_LoadARMToSRMP
+$Source connection value: 
+$Target connection value: 
+	stgARMToSRMP
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	SQ_ARMCalcOutput
+		 SUBTYPE: File Reader
+-------------------------------------------------------------------------
+There are 5 sessions.
+-------------------------------------------------------------------------
+Distinct $Source Connection Names:
+	Relational:RoadwayDataMartReader
+	Relational:Taris
+---------------------------------------------------------------------------------------------------------
+Distinct $Target Connection Names:
+	Relational:StagingRoadwayWriter
+	Relational:Taris
+---------------------------------------------------------------------------------------------------------
+Distinct Connection Names:
+	Relational
+	StagingRoadwayReader
+	StagingRoadwayWriter
+	TARISReader
+---------------------------------------------------------------------------------------------------------

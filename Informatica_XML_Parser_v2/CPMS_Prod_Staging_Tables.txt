@@ -1,0 +1,577 @@
+1: s_stgPICounties
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: StagingCPMS
+	stgPICounties
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingCPMS
+		 VARIABLE: 
+	stgPICounties
+		 SUBTYPE: Relational Reader
+	SQ_stgPICounties
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+2: s_stgCNTL_REC_TABLE
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgCNTL_REC_TABLE1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	cntlrec_CNTL_REC_TABLE1
+		 SUBTYPE: Relational Reader
+	SQ_cntlrec_CNTL_REC_TABLE1
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+3: s_stgSTAGE_OF_FUND_TABLE
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgSTAGE_OF_FUND_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	fundstage_STAGE_OF_FUND_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_fundstage_STAGE_OF_FUND_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+4: s_stgFed_Obl_Table
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgFed_Obl_Table
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	fedobltbl_FED_OBL_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_fedobltbl_FED_OBL_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+5: s_stgImprovementTypeTable
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgIMPROVEMENT_TYPE_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	imprvtype_IMPROVEMENT_TYPE_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_imprvtype_IMPROVEMENT_TYPE_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+6: s_stgSTAGE_OF_ESTIMATE
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgSTAGE_OF_ESTIMATE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stageofest_STAGE_OF_ESTIMATE
+		 SUBTYPE: Relational Reader
+	SQ_stageofest_STAGE_OF_ESTIMATE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+7: s_stgProgramPhase
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgPI_Phase_Table
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	piphasetbl_PI_Phase_Table
+		 SUBTYPE: Relational Reader
+	SQ_piphasetbl_PI_Phase_Table
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+8: s_stgApplication_Text_Database
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgApplication_Text_Database
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgApplication_Text_Database1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	apptextdb_Application_Text_Database
+		 SUBTYPE: Relational Reader
+	apptextdb_Application_Text_Database1
+		 SUBTYPE: Relational Reader
+	SQ_apptextdb_Application_Text_Database
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+	SQ_apptextdb_Application_Text_Database1
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+9: s_stgLegislative_Project_Table
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgLegislative_Project_Table
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	legprojtbl_LegProjTbl
+		 SUBTYPE: Relational Reader
+	SQ_legprojtbl_LegProjTbl
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+10: s_StateRouteLookup
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	StateRouteLookup
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stateroute_STATE_ROUTE_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_stateroute_STATE_ROUTE_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+11: s_stgFP_FC_EST_TABLE
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgFP_FC_EST_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	fpfcesttbl_FP_FC_EST_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_fpfcesttbl_FP_FC_EST_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+12: s_stgFP_Table
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgFP_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	fptable_FP_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_fptable_FP_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+13: s_stgCOAFCTitle
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgCOA_FINANCE_CODE_TITLE_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	coafctitle_COA_FINANCE_CODE_TITLE_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_coafctitle_COA_FINANCE_CODE_TITLE_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+14: s_stgPILegDist
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgPILegDist
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	pitable_PILegDist
+		 SUBTYPE: Relational Reader
+	SQ_pitable_PILegDist
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+15: s_stgSegmentCodeTable
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: StagingCPMSODBC
+	stgSEGMENT_CODE_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingCPMS
+		 VARIABLE: 
+	segcdtable_SEGMENT_CODE_TABLE
+		 SUBTYPE: Relational Reader
+	stgApplication_Text_Database
+		 SUBTYPE: Relational Reader
+	SQ_segcdtable_SEGMENT_CODE_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+	SQ_stgApplication_Text_Database
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+16: s_stgPITable
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgPITable
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	pitable_PITable1
+		 SUBTYPE: Relational Reader
+	SQ_pitable_PITable1
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+17: s_stgFunctionalClassXrefTable
+$Source connection value: Relational:CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgFUNCTIONAL_CLASS_XREF_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	functclass_FUNCTIONAL_CLASS_XREF_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_functclass_FUNCTIONAL_CLASS_XREF_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+18: s_stgFundingGroup
+$Source connection value: Relational:CPMS_mvs_prod_batch
+$Target connection value: Relational:zCPMSWriter
+	stgCOAFundingGroup
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: zStagingCPMSWriter
+		 VARIABLE: 
+	coafundgrp_FUNDING_GROUP
+		 SUBTYPE: Relational Reader
+	SQ_coafundgrp_FUNDING_GROUP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+19: s_stgPIOriginal
+$Source connection value: Relational:CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgPIOriginal
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	piorig_piorig
+		 SUBTYPE: Relational Reader
+	SQ_piorig_piorig
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+20: s_stgWIPhaseTable
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgWI_Phase_Table
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	wiphasetbl_WI_Phase_Table
+		 SUBTYPE: Relational Reader
+	SQ_wiphasetbl_WI_Phase_Table
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+21: s_stgFP_FC_Bien_Table
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgFP_FC_BIEN_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	fpfcbien_FP_FC_BIEN_TABLE
+		 SUBTYPE: Relational Reader
+	lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	LKPTRANS
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	lkpFPTable
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	SQ_fpfcbien_FP_FC_BIEN_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+	ControlRecord_A_B_Identifier.LKPTRANS
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+22: s_stgWITable
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgWITable
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	witable_WITable
+		 SUBTYPE: Relational Reader
+	SQ_witable_WITable
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+23: s_stgProgramItemWorkItem
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgProgramItemWorkItem
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	routetable_ROUTE_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_routetable_ROUTE_TABLE1
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+24: s_stgPinCrosswalk
+$Source connection value: Relational:CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgPinCrosswalk
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	pinxwalk_pinxwalk
+		 SUBTYPE: Relational Reader
+	SQ_pinxwalk_pinxwalk
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+25: s_stgBIEN_APPRVL_TABLE
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	BIEN_APPRVL_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	apprvlcd_BIEN_APPRVL_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_apprvlcd_BIEN_APPRVL_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+26: s_stgBIEN_PGM_STATUS_TABLE
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgBIEN_PGM_STATUS_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	pgmstatus_BIEN_PGM_STATUS_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_pgmstatus_BIEN_PGM_STATUS_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+27: s_stgPI_DEFICIENCY_TABLE
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgPI_DEFICIENCY_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	pideftable_PI_DEFICIENCY_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_pideftable_PI_DEFICIENCY_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+28: s_stgWISpecialFeatures
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgWISpecialFeatures
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	wispecftrs_WORK_ITEM_SPECIAL_FEATURES
+		 SUBTYPE: Relational Reader
+	SQ_wispecftrs_WORK_ITEM_SPECIAL_FEATURES
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+29: s_stgCPMSSpecialFeatures
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgCPMSSpecialFeatures
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	specftrs_CPMS_SPECIAL_FEATURES
+		 SUBTYPE: Relational Reader
+	SQ_specftrs_CPMS_SPECIAL_FEATURES
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+30: s_stgTEISFundType
+$Source connection value: Relational:CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgTEISFundType
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	teisfund_TEISFund
+		 SUBTYPE: Relational Reader
+	SQ_teisfund_TEISFund
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+31: s_stgRevenuePackage
+$Source connection value: Relational:CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgRevenuePackage
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	revpkgtbl_RevenuePackage
+		 SUBTYPE: Relational Reader
+	SQ_revpkgtbl_RevenuePackage
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+32: s_stgSubPgmCategory
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgSubPgmCategoryTable
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	subpgmcat_SUBPROG_CAT_TABLE1
+		 SUBTYPE: Relational Reader
+	SQ_subpgmcat_SUBPROG_CAT_TABLE1
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+33: s_stgCCI_STD_TABLE
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgCCI_STD_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ccistdtbl_CCI_STD_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_ccistdtbl_CCI_STD_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+34: s_stgMilestoneTable
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgMilestone_Table
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	milstntbl_MilstnTbl
+		 SUBTYPE: Relational Reader
+	SQ_milstntbl_MilstnTbl
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+35: s_stgPICongressDist
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgPICongressDist
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	pitable_PICongressDist
+		 SUBTYPE: Relational Reader
+	SQ_pitable_PICongressDist
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+36: s_stgManagement_Area_Table
+$Source connection value: CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgManagement_Area_Table
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	mgmtarea_MGMT_AREA_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_mgmtarea_MGMT_AREA_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+37: s_stgRWInflationTable
+$Source connection value: Relational:CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgRW_INFLATION_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	rwinfltbl_RW_INFLATION_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_rwinfltbl_RW_INFLATION_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+38: s_stgPIMilestoneTable
+$Source connection value: Relational:CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgPI_Milestone_Table
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	pimilstn_PI_MILESTONE_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_pimilstn_PI_MILESTONE_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+39: s_stgMilestoneStdTable
+$Source connection value: Relational:CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgMilestoneStdTable
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	milstnstd_MILSTN_STD_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_milstnstd_MILSTN_STD_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+40: s_stgPEInflationTable
+$Source connection value: Relational:CPMS_mvs_prod_batch
+$Target connection value: Relational:zStagingCPMSWriter
+	stgPE_INFLATION_TABLE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	peinfltbl_PE_INFLATION_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_peinfltbl_PE_INFLATION_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMS_mvs_prod_batch
+		 VARIABLE: 
+41: s_StagingCPMS_Batch_Complete
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	usp_Verify_Staging_Tables
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: StagingCPMS
+	DataCheck1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: zCPMSWriter
+		 VARIABLE: 
+	DataCheck
+		 SUBTYPE: File Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	SQ_DataCheck
+		 SUBTYPE: File Reader
+There are 41 sessions.
+Distinct $Source Connection Names:
+	{'Relational:CPMS_mvs_prod_batch', 'Relational:zStagingCPMSReader'}
+Distinct $Target Connection Names:
+	{'Relational:zStagingCPMSWriter', 'Relational:zCPMSWriter'}
+Distinct Connection Names:
+	{'zStagingCPMSReader', 'zCPMSWriter', 'zStagingCPMSWriter', 'CPMS_mvs_prod_batch', 'StagingCPMS'}
+Distinct Variable Names:
+	{'$Source', '$Target'}

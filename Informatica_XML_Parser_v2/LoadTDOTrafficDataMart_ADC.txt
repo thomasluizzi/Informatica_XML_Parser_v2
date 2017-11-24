@@ -1,0 +1,728 @@
+1: s_stg_SeattleCDRsitesREV
+$Source connection value: 
+$Target connection value: 
+	SQ_SeattleCDRsites
+		 SUBTYPE: File Reader
+	stg_SeattleCDRsitesREV
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: zStagingTrafficWriter
+		 VARIABLE: 
+-------------------------------------------------------------------------
+2: s_stg_SeattleCDRsites
+$Source connection value: 
+$Target connection value: 
+	stg_SeattleCDRsites
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: zStagingTrafficWriter
+		 VARIABLE: 
+	SQ_SeattleCDRsites
+		 SUBTYPE: File Reader
+-------------------------------------------------------------------------
+3: s_stg_IRDSpeedSummary
+$Source connection value: 
+$Target connection value: 
+	stg_IRDSpeedSummary
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: zStagingTrafficWriter
+		 VARIABLE: 
+	SQ_IRDSpeedFile
+		 SUBTYPE: File Reader
+-------------------------------------------------------------------------
+4: s_stg_DiamondLength
+$Source connection value: 
+$Target connection value: 
+	SQ_DiamondDAT
+		 SUBTYPE: File Reader
+	stg_DiamondLength
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: zStagingTrafficWriter
+		 VARIABLE: 
+-------------------------------------------------------------------------
+5: s_stg_IRDClassSummary
+$Source connection value: 
+$Target connection value: 
+	stg_IRDClassSummary
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: zStagingTrafficWriter
+		 VARIABLE: 
+	SQ_IRDClassSummary
+		 SUBTYPE: File Reader
+-------------------------------------------------------------------------
+6: s_stg_DiamondSpeed
+$Source connection value: 
+$Target connection value: 
+	stg_DiamondSpeed
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: zStagingTrafficWriter
+		 VARIABLE: 
+	SQ_DiamondDAT
+		 SUBTYPE: File Reader
+-------------------------------------------------------------------------
+7: s_stg_DiamondClassVolume
+$Source connection value: 
+$Target connection value: 
+	stg_DiamondClassVolume
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: zStagingTrafficWriter
+		 VARIABLE: 
+	SQ_DiamondDAT
+		 SUBTYPE: File Reader
+-------------------------------------------------------------------------
+8: s_HourlyVolume
+$Source connection value: 
+$Target connection value: Relational:TDOTrafficDataMartADC
+	HourlyVolume1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpHour
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	LKPTrafficClassificationID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpTrafficCollectionSite
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpVolumeDataAlreadyLoaded
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	HourlyVolumeDaylightSavingTime
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpDaylightSavingTime
+		 SUBTYPE: Flat File Lookup
+	ConvertStationID.LKPTCompasDirection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	ConvertStationID.LKPSiteLeg
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	ADCLoadAudit2
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	VerifyDataInTRIPS_TARIS1.lkpADC_CLS_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	VerifyDataInTRIPS_TARIS1.lkpADC_VOL_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	SQ_stg_DiamondClassVolume
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingTraffic
+		 VARIABLE: 
+	SQ_stg_IRDClassSummary
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingTraffic
+		 VARIABLE: 
+-------------------------------------------------------------------------
+9: s_HourlyVolumeLengthSites
+$Source connection value: 
+$Target connection value: Relational:TDOTrafficDataMartADC
+	HourlyVolume1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	HourlyVolumeDaylightSavingTime
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	ADCLoadAudit2
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpHour
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpVolumeDataAlreadyLoaded
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpDaylightSavingTime
+		 SUBTYPE: Flat File Lookup
+	lkpTrafficCollectionSite
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ConvertStationID.LKPTCompasDirection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	ConvertStationID.LKPSiteLeg
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	VerifyDataInTRIPS_TARIS1.lkpADC_CLS_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TarisProd
+		 VARIABLE: 
+	VerifyDataInTRIPS_TARIS1.lkpADC_VOL_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TarisProd
+		 VARIABLE: 
+	SQ_stg_IRDClassSummary
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingTraffic
+		 VARIABLE: 
+	SQ_stg_DiamondLength
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingTraffic
+		 VARIABLE: 
+-------------------------------------------------------------------------
+10: s_HourlyVolumeLoadErrorsDiamondSites
+$Source connection value: 
+$Target connection value: Relational:TDOTrafficDataMartADC
+	HourlyVolumeInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	LKPTrafficCollectionSite
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	LKPTrafficClassificationID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	LKPHour
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	LKPDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ConvertStationID.LKPTCompasDirection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TarisProd
+		 VARIABLE: 
+	ConvertStationID.LKPSiteLeg
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	LKPVolumeDataAlreadyLoaded1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	HourlyVolumeDaylightSavingTime
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpDaylightSavingTime
+		 SUBTYPE: Flat File Lookup
+	VerifyDataInTRIPS_TARIS1.lkpADC_CLS_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TarisProd
+		 VARIABLE: 
+	VerifyDataInTRIPS_TARIS1.lkpADC_VOL_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TarisProd
+		 VARIABLE: 
+	SQ_stg_DiamondSpeed
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingTraffic
+		 VARIABLE: 
+-------------------------------------------------------------------------
+11: s_HourlyVolumeFourBinRev
+$Source connection value: Relational:zTrafficADCReader
+$Target connection value: Relational:zTrafficADCWriter
+	HourlyVolumeDaylightSavingTime
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ADCLoadAudit2
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	HourlyVolume
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpVolumeDataAlreadyLoaded
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpDaylightSavingTime
+		 SUBTYPE: Flat File Lookup
+	lkpTrafficCollectionSite
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpHour
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	VerifyDataInTRIPS_TARIS1.lkpADC_CLS_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	VerifyDataInTRIPS_TARIS1.lkpADC_VOL_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	ConvertStationID.LKPTCompasDirection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	ConvertStationID.LKPSiteLeg
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_stg_IRDClassSummary
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: zStagingTrafficReader
+		 VARIABLE: 
+	SQ_stg_SeattleCDRsitesREV
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: zStagingTrafficReader
+		 VARIABLE: 
+-------------------------------------------------------------------------
+12: s_HourlyVolumeFourBin
+$Source connection value: 
+$Target connection value: Relational:zTrafficADCWriter
+	HourlyVolume1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	HourlyVolumeDaylightSavingTime
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ADCLoadAudit2
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpVolumeDataAlreadyLoaded
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTrafficADCReader
+		 VARIABLE: 
+	lkpDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTrafficADCReader
+		 VARIABLE: 
+	lkpTrafficCollectionSite
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTrafficADCReader
+		 VARIABLE: 
+	lkpDaylightSavingTime
+		 SUBTYPE: Flat File Lookup
+	lkpHour
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTrafficADCReader
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTrafficADCReader
+		 VARIABLE: 
+	ConvertStationID.LKPTCompasDirection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	ConvertStationID.LKPSiteLeg
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTrafficADCReader
+		 VARIABLE: 
+	VerifyDataInTRIPS_TARIS1.lkpADC_CLS_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	VerifyDataInTRIPS_TARIS1.lkpADC_VOL_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	SQ_stg_IRDClassSummary
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: zStagingTrafficReader
+		 VARIABLE: 
+	SQ_stg_SeattleCDRsites
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: zStagingTrafficReader
+		 VARIABLE: 
+-------------------------------------------------------------------------
+13: s_HourlySpeed
+$Source connection value: 
+$Target connection value: Relational:TDOTrafficDataMartADC
+	HourlySpeed
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	ErrorHourlySpeed
+		 SUBTYPE: File Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	lkpDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpHour
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpTrafficCollectionSite
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpHourlySpeed
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpDate2
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ConvertStationID.LKPTCompasDirection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	ConvertStationID.LKPSiteLeg
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	HourlySpeedDaylightSavingTime
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpDaylightSavingTime
+		 SUBTYPE: Flat File Lookup
+	VerifyDataInTRIPS_TARIS1.lkpADC_CLS_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	VerifyDataInTRIPS_TARIS1.lkpADC_VOL_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	SQ_stg_DiamondSpeed
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingTraffic
+		 VARIABLE: 
+	SQ_stg_IRDSpeedSummary
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingTraffic
+		 VARIABLE: 
+	lkpCounterProperty
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	RejectedHourlySpeedRecords_FlatFile
+		 SUBTYPE: File Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+-------------------------------------------------------------------------
+14: s_HourlySpeedLoadErrors
+$Source connection value: 
+$Target connection value: Relational:TDOTrafficDataMartADC
+	HourlySpeed
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	SQ_HourlyVolume
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	LKP_HS_CounterPropertyId
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	LKP_TrafficCollectionSite
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	LKP_HourlySpeed_CounterPropertyId
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	VerifyDataInTRIPS_TARIS1.lkpADC_CLS_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	VerifyDataInTRIPS_TARIS1.lkpADC_VOL_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	LKP_CounterProperty
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+-------------------------------------------------------------------------
+15: s_HourlySpeed_NG
+$Source connection value: 
+$Target connection value: Relational:TDOTrafficDataMartADC
+	HourlySpeed
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	ErrorHourlySpeed
+		 SUBTYPE: File Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	lkpDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpHour
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpTrafficCollectionSite
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpHourlySpeed
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpDate2
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ConvertStationID.LKPTCompasDirection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	ConvertStationID.LKPSiteLeg
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	HourlySpeedDaylightSavingTime
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpDaylightSavingTime
+		 SUBTYPE: Flat File Lookup
+	VerifyDataInTRIPS_TARIS1.lkpADC_CLS_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	VerifyDataInTRIPS_TARIS1.lkpADC_VOL_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	SQ_stg_DiamondSpeed
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingTraffic
+		 VARIABLE: 
+	SQ_stg_IRDSpeedSummary
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingTraffic
+		 VARIABLE: 
+	lkpCounterProperty
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	RejectedHourlySpeedRecords_FlatFile
+		 SUBTYPE: File Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+-------------------------------------------------------------------------
+16: s_TruckWeight
+$Source connection value: Relational:TDOTrafficDataMartADC
+$Target connection value: Relational:TDOTrafficDataMartADC
+	HourlyTruckWeight
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpHour
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpTrafficClassification
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	lkpTrafficCollectionSite
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	ConvertStationID.LKPTCompasDirection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	ConvertStationID.LKPSiteLeg
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TDOTrafficDataMartADC
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	VerifyDataInTRIPS_TARIS1.lkpADC_CLS_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	VerifyDataInTRIPS_TARIS1.lkpADC_VOL_HRLY_TRFC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: Taris
+		 VARIABLE: 
+	SQ_vw_TruckWeight_source
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingTraffic
+		 VARIABLE: 
+	HourlyTruckWeightRejected_Records
+		 SUBTYPE: File Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	lkp_HourlyTruckWeight
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+-------------------------------------------------------------------------
+17: s_stgPTRTable
+$Source connection value: 
+$Target connection value: 
+	stgPTRTable
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: zTrafficADCWriter
+		 VARIABLE: 
+	SQ_ptrtable_PTRTable
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: RoadwayMVSBatch
+		 VARIABLE: 
+-------------------------------------------------------------------------
+18: s_TrafficCollectionSite
+$Source connection value: Relational:zTrafficADCReader
+$Target connection value: Relational:zTrafficADCWriter
+	TrafficCollectionSiteInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	TrafficCollectionSiteUPDCurr
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	TrafficCollectionSiteUpdHist
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	LKPStateRouteLocationReferenceID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	LKPCompassDirectionName
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	SQ_ADC_Site_Hist
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	LKPTrafficCollectionSiteExists
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_Current_ADC_Site
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_stgPTRTable
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+-------------------------------------------------------------------------
+19: s_ADCTrafficSummary
+$Source connection value: 
+$Target connection value: Relational:zTrafficADCWriter
+	sp_updADCTrafficDMLoadInd
+		 SUBTYPE: Stored Procedure
+	ADCTrafficSummary
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_ADCSummaryCustomSQL
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: zTrafficADCReader
+		 VARIABLE: 
+-------------------------------------------------------------------------
+20: s_stgTrafficWeight
+$Source connection value: 
+$Target connection value: Relational:zStagingTrafficWriter
+	LKPTruckWeightCrossReferenceLane
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTrafficADCReader
+		 VARIABLE: 
+	SQ_NewWeightSource
+		 SUBTYPE: File Reader
+	stg_TruckWeight
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+-------------------------------------------------------------------------
+There are 20 sessions.
+-------------------------------------------------------------------------
+Distinct $Source Connection Names:
+	Relational:TDOTrafficDataMartADC
+	Relational:zTrafficADCReader
+---------------------------------------------------------------------------------------------------------
+Distinct $Target Connection Names:
+	Relational:TDOTrafficDataMartADC
+	Relational:zStagingTrafficWriter
+	Relational:zTrafficADCWriter
+---------------------------------------------------------------------------------------------------------
+Distinct Connection Names:
+	RoadwayDataMartReader
+	RoadwayMVSBatch
+	StagingTraffic
+	TARISReader
+	TDOTrafficDataMartADC
+	Taris
+	TarisProd
+	zStagingTrafficReader
+	zStagingTrafficWriter
+	zTrafficADCReader
+	zTrafficADCWriter
+---------------------------------------------------------------------------------------------------------

@@ -1,0 +1,1940 @@
+1: s_SRLocRefRoadwayFeatureUpdate
+$Source connection value: Relational:RoadwayDataMartReader
+$Target connection value: Relational:RoadwayDataMartReader
+	SRLocationReference20120901
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpRoadwayFeatureDescription
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	SQ_SRRef20120901
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpStateRoute
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	mptCreateRoadwayFeatureDescription.lkpSRStrctrEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpStateRoutesEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpvw_Informatica_Coincidences_DiscontinuitiesBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpIntrsec
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpMiscFeat
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpvw_Informatica_Coincidences_DiscontinuitiesEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpStateRoutesBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpRoadway_DiscontinuityBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpSRStrctrBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpRoadway_DiscontinuityEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+2: s_SRLocationReference
+$Source connection value: 
+$Target connection value: Relational:RoadwayDataMartReader
+	sp_SRLocationBuildIndexes
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:RoadwayDataMartWriter
+	sp_SRLocationPartitionDrop
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:RoadwayDataMartWriter
+	sp_CreateInsideLanes
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:RoadwayDataMartWriter
+	sp_CreateStgInsideLanesInc
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:RoadwayDataMartWriter
+	sp_UpdSnapShotDtStatus
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:RoadwayDataMartWriter
+	sp_CreateStgInsideLanesDec
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:RoadwayDataMartWriter
+	SRLocationReference_InsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpRoadwayGeometrics
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpLegislative_District
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpCityCounty
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpControlSection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpStateRoute
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpSpecialUseLane
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpMaintenanceSection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpRoadwayClassification
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgIntersectionLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpstgFaciltyLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpstgMiscFeatureLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpWashingtonStatePatrol
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgRailroadCrossingLocationXRef
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpLegislativeDistrict
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpstgStructureLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpCityCounty_CityNumber
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpSnapShotDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	SQ_stgARMToSRMP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TarisProd
+		 VARIABLE: 
+	lkpDistrictNumber
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOTDataLibraryReader
+		 VARIABLE: 
+	lkpstgVertical_LocationXREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpstgHorizontalAlignmentXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpMainlineMPandARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpBarr_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpMP_Mkr
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpPrkng_Zone
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpMtn_Pass
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpRdwy_Disconty_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpTeran
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ_Increasing
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ_Decreasing
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpAcc_Ln_Length
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpAcc_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpTurn_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpTurn_Ln_Length
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpLand_Owner_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpBarr_Typ1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptSpecialUseLane.lkpSpecl_Use_Ln_Current_Surface_Type
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptSpecialUseLane.lkpSpecl_Use_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanizedAreaDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanAreaDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpDevelopementLevelDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanRegionDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpAccessControlType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpState_Func_Cls_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpComm_Fed_Func_Cls_Tbl_WSDOT_Common_Tables
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOTDataLibraryReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpInformaticaCoinsAndDiscs
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalAcc_Ln_Lgth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalAcc_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalTurn_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalTurn_Ln_Lgth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpRoadwayFeatureDescription
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpSRStrctrEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpStateRoutesEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpvw_Informatica_Coincidences_DiscontinuitiesBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpIntrsec
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpMiscFeat
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpvw_Informatica_Coincidences_DiscontinuitiesEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpStateRoutesBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpRoadway_DiscontinuityBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpSRStrctrBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpRoadway_DiscontinuityEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpStgRumbleStripsXREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+3: s_MainlineMP
+$Source connection value: 
+$Target connection value: 
+	MainlineMP
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	lkpRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	SQ_stgRoadwayLinearMPData
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+4: s_MainlineARM
+$Source connection value: 
+$Target connection value: 
+	MainlineARM
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	lkpstgRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	SQ_stgRoadwayLinearData
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+5: SRLocationReference
+$Source connection value: Relational:StagingRoadwayReader
+$Target connection value: Relational:RoadwayDataMartReader
+	sp_SRLocationBuildIndexes
+		 SUBTYPE: Stored Procedure
+	sp_SRLocationPartitionDrop
+		 SUBTYPE: Stored Procedure
+	sp_CreateInsideLanes
+		 SUBTYPE: Stored Procedure
+	sp_CreateStgInsideLanesInc
+		 SUBTYPE: Stored Procedure
+	sp_UpdSnapShotDtStatus
+		 SUBTYPE: Stored Procedure
+	sp_CreateStgInsideLanesDec
+		 SUBTYPE: Stored Procedure
+	SRLocationReference_InsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpMainlineMPandARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpstgHorizontalAlignmentXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpRoadwayClassification
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgVertical_LocationXREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpLegislativeDistrict
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgRailroadCrossingLocationXRef
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpstgFaciltyLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpRoadwayGeometrics
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_stgARMToSRMP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpControlSection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpRoadwayFeatureDescription
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpCityCounty_CityNumber
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpstgStructureLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpSpecialUseLane
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpStateRoute
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpDistrictNumber
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOT_Common_Tables
+		 VARIABLE: 
+	lkpCityCounty
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgMiscFeatureLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOTDataLibraryReader
+		 VARIABLE: 
+	lkpLegislative_District
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpWashingtonStatePatrol
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgIntersectionLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpMaintenanceSection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpSnapShotDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpBarr_Typ1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpPrkng_Zone
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpTurn_Ln_Length
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpLand_Owner_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpMP_Mkr
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpMtn_Pass
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ_Increasing
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ_Decreasing
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpBarr_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpTeran
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalTurn_Ln_Lgth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalAcc_Ln_Lgth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalTurn_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalAcc_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpAcc_Ln_Length
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpAcc_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpTurn_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpRdwy_Disconty_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpSRStrctrEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpStateRoutesEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpvw_Informatica_Coincidences_DiscontinuitiesBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpIntrsec
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpMiscFeat
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpvw_Informatica_Coincidences_DiscontinuitiesEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpStateRoutesBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpRoadway_DiscontinuityBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpSRStrctrBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpRoadway_DiscontinuityEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpInformaticaCoinsAndDiscs
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanizedAreaDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanAreaDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpDevelopementLevelDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanRegionDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpAccessControlType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpState_Func_Cls_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpComm_Fed_Func_Cls_Tbl_WSDOT_Common_Tables
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOT_Common_Tables
+		 VARIABLE: 
+	mptSpecialUseLane.lkpSpecl_Use_Ln_Current_Surface_Type
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptSpecialUseLane.lkpSpecl_Use_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpStgRumbleStripsXREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+6: s_SRLocationReference20121201
+$Source connection value: 
+$Target connection value: Relational:RoadwayDataMartReader
+	SRLocationReference_InsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOTDataLibraryReader
+		 VARIABLE: 
+	lkpControlSection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpstgMiscFeatureLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpLegislative_District
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpDistrictNumber
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOT_Common_Tables_on_DOTDBOLYDS01
+		 VARIABLE: 
+	lkpMaintenanceSection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpStateRoute
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpRoadwayFeatureDescription
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpMainlineMPandARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpCityCounty_CityNumber
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgHorizontalAlignmentXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpstgVertical_LocationXREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpLegislativeDistrict
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgRailroadCrossingLocationXRef
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpstgFaciltyLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpstgStructureLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpstgIntersectionLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpWashingtonStatePatrol
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpSnapShotDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_stgARMToSRMP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpSpecialUseLane
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpRoadwayGeometrics
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpRoadwayClassification
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpStgRumbleStripsXREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpCityCounty
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	mptCreateRoadwayFeatureDescription.lkpSRStrctrEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpStateRoutesEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpvw_Informatica_Coincidences_DiscontinuitiesBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpIntrsec
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpMiscFeat
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpvw_Informatica_Coincidences_DiscontinuitiesEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpStateRoutesBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpRoadway_DiscontinuityBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpSRStrctrBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpRoadway_DiscontinuityEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpInformaticaCoinsAndDiscs
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanizedAreaDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpState_Func_Cls_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpComm_Fed_Func_Cls_Tbl_WSDOT_Common_Tables
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOT_Common_Tables
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanAreaDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpDevelopementLevelDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanRegionDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpAccessControlType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptSpecialUseLane.lkpSpecl_Use_Ln_Current_Surface_Type
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptSpecialUseLane.lkpSpecl_Use_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalTurn_Ln_Lgth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalAcc_Ln_Lgth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalTurn_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalAcc_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpAcc_Ln_Length
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpAcc_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpTurn_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpBarr_Typ1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpPrkng_Zone
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpTurn_Ln_Length
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpLand_Owner_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpMP_Mkr
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpMtn_Pass
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ_Decreasing
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ_Increasing
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpBarr_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpTeran
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpRdwy_Disconty_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+7: s_MaintenanceSection
+$Source connection value: 
+$Target connection value: 
+	MaintenanceSection_Insert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	MaintenanceSection_Updates
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpMaintenanceSection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	SQ_RoadwayLinearData
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpDistrictNumber
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOTDataLibraryReader
+		 VARIABLE: 
+8: s_RoadwayClassifications
+$Source connection value: 
+$Target connection value: 
+	RoadwayClassifications
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpRoadwayClassification
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpComm_Fed_Func_Cls_Tbl_WSDOT_Common_Tables
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOTDataLibraryReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpState_Func_Cls_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanizedAreaDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanAreaDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpDevelopementLevelDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanRegionDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpAccessControlType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	SQ_stgARMToSRMP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpInformaticaCoinsAndDiscs
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+9: s_CityCounty
+$Source connection value: Relational:WSDOTDataLibraryReader
+$Target connection value: 
+	CityCounty_Insert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	CityCounty_Update
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpCityCounty
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpCity_Area_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpCity
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	SQ_CityCounty
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: WSDOTDataLibraryReader
+		 VARIABLE: 
+10: s_SpecialUseLane
+$Source connection value: 
+$Target connection value: 
+	SpecialUseLane
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpSpecialUseLane
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpSpecl_Use_Ln
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptSpecialUseLane.lkpSpecl_Use_Ln_Current_Surface_Type
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptSpecialUseLane.lkpSpecl_Use_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	SQ_stgARMToSRMP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+11: s_RoadwayGeometrics
+$Source connection value: 
+$Target connection value: 
+	RoadwayGeometric
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpRoadwayGeometric
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	SQ_stgARMToSRMP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpLand_Owner_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpPrkng_Zone
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpMtn_Pass
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpRdwy_Disconty_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpTeran
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpBarr_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpMP_Mkr
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpBarr_Typ1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ_Increasing
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpCurr_Surfc_Typ_Decreasing
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpAcc_Ln_Length
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpAcc_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpTurn_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpTurn_Ln_Length
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalAcc_Ln_Lgth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalAcc_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalTurn_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayGeometrics.lkpOriginalTurn_Ln_Lgth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	LKPTRANS
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+12: s_WashingtonStatePatrol
+$Source connection value: 
+$Target connection value: 
+	WashingtonStatePatrol
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_WSP_Detachment
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpWashingtonStatePatrol
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+13: s_LegislativeDistrict
+$Source connection value: 
+$Target connection value: 
+	LegislativeDistrict
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpLegislativeDistrict
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	SQ_RoadwayLinearData
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+14: s_Contract
+$Source connection value: 
+$Target connection value: 
+	Contract
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_Contr_Seg
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpContr_Surfc_Typ_Cd
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISFrozenReader
+		 VARIABLE: 
+	lkpExcptn_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISFrozenReader
+		 VARIABLE: 
+	lkpContr_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpStateRoute
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+15: s_StateRoute
+$Source connection value: 
+$Target connection value: 
+	StateRoute_Updates
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	StateRoute_Inserts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpStateRoute
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	SQ_SR
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpRelatedRouteType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOTDataLibraryReader
+		 VARIABLE: 
+16: s_RoadwayFeatureDescription
+$Source connection value: 
+$Target connection value: 
+	RoadwayFeatureDescription
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpRoadwayFeatureDescription
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	SQ_stgARMToSRMP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpvw_Informatica_Coincidences_DiscontinuitiesEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpvw_Informatica_Coincidences_DiscontinuitiesBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpStateRoutesEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpStateRoutesBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpIntrsec
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpSRStrctrBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpSRStrctrEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpMiscFeat
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpRoadway_DiscontinuityEndARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptCreateRoadwayFeatureDescription.lkpRoadway_DiscontinuityBeginARM
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+17: SpecialUse
+$Source connection value: Relational:StagingRoadwayReader
+$Target connection value: 
+	SpecialUseLane
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpSpecialUseLane
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	SQ_stgARMToSRMP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpSpecl_Use_Ln
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptSpecialUseLane.lkpSpecl_Use_Ln_Current_Surface_Type
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptSpecialUseLane.lkpSpecl_Use_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+18: s_RoadwayClassificationDebug
+$Source connection value: 
+$Target connection value: 
+	RoadwayClassifications
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_stgARMToSRMP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpRoadwayClassification
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpInformaticaCoinsAndDiscs
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanizedAreaDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpRoadwayLinearData
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpState_Func_Cls_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpComm_Fed_Func_Cls_Tbl_WSDOT_Common_Tables
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOT_Common_Tables
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanAreaDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpDevelopementLevelDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpUrbanRegionDesc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	CreateRoadwayClassifications.lkpAccessControlType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+19: s_RailroadCrossing
+$Source connection value: 
+$Target connection value: 
+	RailroadCrossing
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_RR_Xing
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpRailroadCrossing
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+20: s_stgRailroadCrossingLocationXRef
+$Source connection value: 
+$Target connection value: 
+	stgRailroadCrossingLocationXRef
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	SQ_RR_Xing
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpstgRailroadCrossingLocationXRef
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+21: s_RailroadCrossingGroup
+$Source connection value: 
+$Target connection value: 
+	RailroadCrossingGroup
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_RR_Xing
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpstgRailroadCrossingLocationXRef
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpRailroadCrossing
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpRailroadCrossingGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+22: s_MiscellaneousFeature
+$Source connection value: 
+$Target connection value: 
+	MiscFeature
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_Miscellaneous_Features
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpMiscFeature
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+23: s_stgMiscFeatureLocationXref
+$Source connection value: 
+$Target connection value: 
+	stgMiscFeatureLocationXref
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	SQ_Miscellaneous_Features
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpstgMiscFeatureLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+24: s_MiscellaneousFeatureGroup
+$Source connection value: 
+$Target connection value: 
+	MiscFeatureGroup
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_Miscellaneous_Features
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpMiscFeature
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpstgMiscFeatureLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpMiscFeatureGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+25: sMiscFeature
+$Source connection value: 
+$Target connection value: 
+	MiscFeature
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_Miscellaneous_Features
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpMiscFeature
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+26: s_VerticalAlignment
+$Source connection value: 
+$Target connection value: 
+	sp_CreatestgVertical_Algnment
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:TARISWriter
+	VerticalAlignment
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_VerticalAlignment
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	mptVerticalAlignment.lkpVerticalAlignment
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+27: s_stgVertical_LocationXREF
+$Source connection value: 
+$Target connection value: 
+	stgVerticalAlignmentXref
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	SQ_stgVerticalAlignment
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpstgVerticalAlignmentXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+28: s_RoadwayVerticalGroup
+$Source connection value: 
+$Target connection value: 
+	RoadwayVerticalGroup
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpstgVerticalAlignmentXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpRoadwayVerticalGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMart
+		 VARIABLE: 
+	SQ_stgVerticalAlignment
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpVerticalAlignmentView
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpVerticalAlignment
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMart
+		 VARIABLE: 
+	lkpVerticalAlignment1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMart
+		 VARIABLE: 
+29: RoadwayHorizontalGroup
+$Source connection value: 
+$Target connection value: 
+	RoadwayHorizontalGroup
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_stgHorizontalAlignment
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpstgHorizontalAlignmentXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpHorizontalAlignment2
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpRoadwayHorizontalGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpHorizontalAlignmentView
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpHorizontalAlignment
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+30: s_HorizontalAlignment
+$Source connection value: 
+$Target connection value: 
+	sp_CreatestgHorizontal_Algnment
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:TARISWriter
+	HorizontalAlignment
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	mptHorizontalAlignment.lkpHorizontalAlignment
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	SQ_HorizontalAlignment
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+31: s_stgHorizontalAlignmentXref
+$Source connection value: 
+$Target connection value: 
+	stgHorizontalAlignmentXref
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	lkpstgHorizontalAlignmentXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	SQ_stgHorizontalAlignment
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+32: s_Intersection
+$Source connection value: 
+$Target connection value: 
+	sp_UpdSnapShotDt
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:RoadwayDataMartWriter
+	sp_SRLocationPartitionCreate
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:RoadwayDataMartWriter
+		 CONNECTIONNAME: Verbose Data
+	Intersection
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_Intrsec
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpIntersection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpIntersec_Config_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpIntersec_Trfc_Ctrl_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+33: s_stgIntersectionLocationXRef
+$Source connection value: 
+$Target connection value: 
+	stgIntersectionLocationXref
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	SQ_Intrsec
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpstgIntersectionLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+34: s_IntersectionGroup
+$Source connection value: 
+$Target connection value: 
+	IntersectionGroup
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_Intrsec
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpIntersection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpstgIntersectionLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	IntersectionGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpIntersec_Config_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+35: s_stgStructure_LocationXREF
+$Source connection value: 
+$Target connection value: 
+	stgStructureLocationXref
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	lkpstgStructureLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	SQ_stgSR_Strctr
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+36: s_RoadwayStructureGroup
+$Source connection value: 
+$Target connection value: 
+	RoadwayStructureGroup
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpStrctr_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpstgStructureLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpRoadwayStructureGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpRoadwayStructure
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	SQ_stgSR_Strctr
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+37: s_StateRouteStructure
+$Source connection value: 
+$Target connection value: 
+	RoadwayStructure
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpStrctr_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpRoadwayStructure
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	SQ_SR_Strctr
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+38: s_RoadwayFacility
+$Source connection value: 
+$Target connection value: 
+	RoadwayFacility
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_Fac
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpFac_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpRoadwayFacility
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+39: s_stgFaciltyLocationXREF
+$Source connection value: 
+$Target connection value: 
+	stgFaciltyLocationXref
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	SQ_Fac
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpstgFaciltyLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+40: s_RoadwayFacilityGroup
+$Source connection value: 
+$Target connection value: 
+	RoadwayFacilityGroup
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_Fac
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpstgFaciltyLocationXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpFac_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpRoadwayFacilityGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpRoadwayFacility
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+41: s_RumbleStrips
+$Source connection value: 
+$Target connection value: 
+	sp_CreateStgRumbleStrips
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:TARISWriter
+	RumbleStrip
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	lkpRumbleStrip
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	SQ_RumbleStrips
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpCPMSCTSPinSearch
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+42: s_StgRumbleStripsXREF
+$Source connection value: 
+$Target connection value: 
+	stgRumbleStripsXref
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	SQ_stgRumbleStrips
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpstgRumbleStripsXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+43: s_RumbleStripGroup
+$Source connection value: 
+$Target connection value: 
+	RumbleStripGroup
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMartWriter
+		 VARIABLE: 
+	SQ_stgRumbleStrips
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpRumbleStrip
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpRumbleStripGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpstgRumbleStripsXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+	lkpCPMSCTSPinSearch
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingRoadwayReader
+		 VARIABLE: 
+44: s_stgCPMSCTSPinSearch
+$Source connection value: 
+$Target connection value: 
+	stgCtsPinSearch
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: StagingRoadwayWriter
+		 VARIABLE: 
+	SQ_CtsPinSearch
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMSInterfaceReader
+		 VARIABLE: 
+There are 44 sessions.
+Distinct $Source Connection Names:
+	Relational:RoadwayDataMartReader
+	Relational:StagingRoadwayReader
+	Relational:WSDOTDataLibraryReader
+Distinct $Target Connection Names:
+	Relational:RoadwayDataMartReader
+Distinct Connection Names:
+	CPMSInterfaceReader
+	Relational
+	RoadwayDataMart
+	RoadwayDataMartReader
+	RoadwayDataMartWriter
+	StagingRoadwayReader
+	StagingRoadwayWriter
+	TARISFrozenReader
+	TARISReader
+	TarisProd
+	Verbose
+	WSDOTDataLibraryReader
+	WSDOT_Common_Tables
+	WSDOT_Common_Tables_on_DOTDBOLYDS01

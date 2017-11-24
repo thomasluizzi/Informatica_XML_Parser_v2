@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE POWERMART SYSTEM "powrmart.dtd">
+<POWERMART CREATION_DATE="04/21/2017 10:35:38" REPOSITORY_VERSION="186.95">
+<REPOSITORY NAME="InformaticaDevl64" VERSION="186" CODEPAGE="MS1252" DATABASETYPE="Microsoft SQL Server">
+<FOLDER NAME="Roadway Data Mart" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="rwx---r--" UUID="89c054a4-af69-4d4c-9204-05ba860fa248">
+    <CONFIG DESCRIPTION ="Default session configuration object" ISDEFAULT ="YES" NAME ="default_session_config" VERSIONNUMBER ="1">
+        <ATTRIBUTE NAME ="Advanced" VALUE =""/>
+        <ATTRIBUTE NAME ="Constraint based load ordering" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Cache LOOKUP() function" VALUE ="YES"/>
+        <ATTRIBUTE NAME ="Default buffer block size" VALUE ="Auto"/>
+        <ATTRIBUTE NAME ="Line Sequential buffer length" VALUE ="1024"/>
+        <ATTRIBUTE NAME ="Maximum Memory Allowed For Auto Memory Attributes" VALUE ="0"/>
+        <ATTRIBUTE NAME ="Maximum Percentage of Total Memory Allowed For Auto Memory Attributes" VALUE ="5"/>
+        <ATTRIBUTE NAME ="Additional Concurrent Pipelines for Lookup Cache Creation" VALUE ="0"/>
+        <ATTRIBUTE NAME ="Custom Properties" VALUE =""/>
+        <ATTRIBUTE NAME ="Pre-build lookup cache" VALUE ="Auto"/>
+        <ATTRIBUTE NAME ="Optimization Level" VALUE ="Medium"/>
+        <ATTRIBUTE NAME ="DateTime Format String" VALUE ="MM/DD/YYYY HH24:MI:SS"/>
+        <ATTRIBUTE NAME ="Pre 85 Timestamp Compatibility" VALUE ="YES"/>
+        <ATTRIBUTE NAME ="Log Options" VALUE ="0"/>
+        <ATTRIBUTE NAME ="Save session log by" VALUE ="Session runs"/>
+        <ATTRIBUTE NAME ="Save session log for these runs" VALUE ="0"/>
+        <ATTRIBUTE NAME ="Session Log File Max Size" VALUE ="0"/>
+        <ATTRIBUTE NAME ="Session Log File Max Time Period" VALUE ="0"/>
+        <ATTRIBUTE NAME ="Maximum Partial Session Log Files" VALUE ="1"/>
+        <ATTRIBUTE NAME ="Writer Commit Statistics Log Frequency" VALUE ="1"/>
+        <ATTRIBUTE NAME ="Writer Commit Statistics Log Interval" VALUE ="0"/>
+        <ATTRIBUTE NAME ="Error handling" VALUE =""/>
+        <ATTRIBUTE NAME ="Stop on errors" VALUE ="0"/>
+        <ATTRIBUTE NAME ="Override tracing" VALUE ="None"/>
+        <ATTRIBUTE NAME ="On Stored Procedure error" VALUE ="Stop"/>
+        <ATTRIBUTE NAME ="On Pre-session command task error" VALUE ="Stop"/>
+        <ATTRIBUTE NAME ="On Pre-Post SQL error" VALUE ="Stop"/>
+        <ATTRIBUTE NAME ="Enable Recovery" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Error Log Type" VALUE ="None"/>
+        <ATTRIBUTE NAME ="Error Log Table Name Prefix" VALUE =""/>
+        <ATTRIBUTE NAME ="Error Log File Name" VALUE ="PMError.log"/>
+        <ATTRIBUTE NAME ="Log Source Row Data" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Data Column Delimiter" VALUE ="|"/>
+        <ATTRIBUTE NAME ="Partitioning Options" VALUE =""/>
+        <ATTRIBUTE NAME ="Dynamic Partitioning" VALUE ="Disabled"/>
+        <ATTRIBUTE NAME ="Number of Partitions" VALUE ="1"/>
+        <ATTRIBUTE NAME ="Multiplication Factor" VALUE ="Auto"/>
+        <ATTRIBUTE NAME ="Session on Grid" VALUE =""/>
+        <ATTRIBUTE NAME ="Is Enabled" VALUE ="NO"/>
+    </CONFIG>
+    <SESSION DESCRIPTION ="" ISVALID ="YES" MAPPINGNAME ="UpdateSRLocationReferenceGeometricID" NAME ="s_UpdateSRLocationReferenceGeometricID" REUSABLE ="YES" SORTORDER ="Binary" VERSIONNUMBER ="1">
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="lkpStateRoute" STAGE ="5" TRANSFORMATIONNAME ="lkpStateRoute" TRANSFORMATIONTYPE ="Lookup Procedure">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+            <ATTRIBUTE NAME ="Datetime Format" VALUE =""/>
+            <ATTRIBUTE NAME ="Case Sensitive String Comparison" VALUE ="NO"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="lkpSRLocationReference" STAGE ="5" TRANSFORMATIONNAME ="lkpSRLocationReference" TRANSFORMATIONTYPE ="Lookup Procedure">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+            <ATTRIBUTE NAME ="Lookup table name" VALUE ="SRLocationReference20070915"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="UPDTRANS" STAGE ="5" TRANSFORMATIONNAME ="UPDTRANS" TRANSFORMATIONTYPE ="Update Strategy">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="lkpOriginalAcc_Ln_Width" STAGE ="0" TRANSFORMATIONNAME ="lkpOriginalAcc_Ln_Width" TRANSFORMATIONTYPE ="Lookup Procedure"/>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="lkpOriginalTurn_Ln_Width" STAGE ="0" TRANSFORMATIONNAME ="lkpOriginalTurn_Ln_Width" TRANSFORMATIONTYPE ="Lookup Procedure"/>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="lkpOriginalAcc_Ln_Lgth" STAGE ="0" TRANSFORMATIONNAME ="lkpOriginalAcc_Ln_Lgth" TRANSFORMATIONTYPE ="Lookup Procedure"/>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="lkpOriginalTurn_Ln_Lgth" STAGE ="0" TRANSFORMATIONNAME ="lkpOriginalTurn_Ln_Lgth" TRANSFORMATIONTYPE ="Lookup Procedure"/>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="lkpRoadwayGeometric" STAGE ="5" TRANSFORMATIONNAME ="lkpRoadwayGeometric" TRANSFORMATIONTYPE ="Lookup Procedure">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="expDefaultValues" STAGE ="5" TRANSFORMATIONNAME ="expDefaultValues" TRANSFORMATIONTYPE ="Expression">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="lkpRoadwayGeometricID" STAGE ="5" TRANSFORMATIONNAME ="lkpRoadwayGeometricID" TRANSFORMATIONTYPE ="Lookup Procedure">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="History2004" STAGE ="0" TRANSFORMATIONNAME ="History2004" TRANSFORMATIONTYPE ="Source Definition"/>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="2" SINSTANCENAME ="SQ_History2004" STAGE ="5" TRANSFORMATIONNAME ="SQ_History2004" TRANSFORMATIONTYPE ="Source Qualifier">
+            <ATTRIBUTE NAME ="Sql Query" VALUE ="SELECT History2004.SRID, History2004.ARM, History2004.RoadwayGeometricID &#xD;&#xA;FROM&#xD;&#xA; History2004  ORDER BY History2004.SRID, History2004.ARM--"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="lkpRoadwayHistory" STAGE ="5" TRANSFORMATIONNAME ="lkpRoadwayHistory" TRANSFORMATIONTYPE ="Lookup Procedure">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+            <ATTRIBUTE NAME ="Connection Information" VALUE ="Relational:RoadwayDataMart"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="FILTRANS" STAGE ="5" TRANSFORMATIONNAME ="FILTRANS" TRANSFORMATIONTYPE ="Filter">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="2" SINSTANCENAME ="SRLocationReference20070915" STAGE ="13" TRANSFORMATIONNAME ="SRLocationReference20070915" TRANSFORMATIONTYPE ="Target Definition"/>
+        <CONFIGREFERENCE REFOBJECTNAME ="default_session_config" TYPE ="Session config"/>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpStateRoute" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="Relational" VARIABLE ="$Target"/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpSRLocationReference" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="Relational" VARIABLE ="$Target"/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpOriginalAcc_Ln_Width" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpOriginalTurn_Ln_Width" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpOriginalAcc_Ln_Lgth" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpOriginalTurn_Ln_Lgth" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpRoadwayGeometric" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="Relational" VARIABLE ="$Target"/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpRoadwayGeometricID" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="Relational" VARIABLE ="$Target"/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION DSQINSTNAME ="SQ_History2004" DSQINSTTYPE ="Source Qualifier" NAME ="Relational Reader" SINSTANCENAME ="History2004" SUBTYPE ="Relational Reader" TRANSFORMATIONTYPE ="Source Definition" TYPE ="READER"/>
+        <SESSIONEXTENSION NAME ="Relational Reader" SINSTANCENAME ="SQ_History2004" SUBTYPE ="Relational Reader" TRANSFORMATIONTYPE ="Source Qualifier" TYPE ="READER">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpRoadwayHistory" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Writer" SINSTANCENAME ="SRLocationReference20070915" SUBTYPE ="Relational Writer" TRANSFORMATIONTYPE ="Target Definition" TYPE ="WRITER">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            <ATTRIBUTE NAME ="Target load type" VALUE ="Bulk"/>
+            <ATTRIBUTE NAME ="Insert" VALUE ="YES"/>
+            <ATTRIBUTE NAME ="Update as Update" VALUE ="YES"/>
+            <ATTRIBUTE NAME ="Update as Insert" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Update else Insert" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Delete" VALUE ="YES"/>
+            <ATTRIBUTE NAME ="Truncate target table option" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Reject file directory" VALUE ="$PMBadFileDir&#x5c;"/>
+            <ATTRIBUTE NAME ="Reject filename" VALUE ="srlocationreference200709151.bad"/>
+        </SESSIONEXTENSION>
+        <ATTRIBUTE NAME ="General Options" VALUE =""/>
+        <ATTRIBUTE NAME ="Write Backward Compatible Session Log File" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Session Log File Name" VALUE ="s_UpdateSRLocationReferenceGeometricID.log"/>
+        <ATTRIBUTE NAME ="Session Log File directory" VALUE ="$PMSessionLogDir&#x5c;"/>
+        <ATTRIBUTE NAME ="Parameter Filename" VALUE =""/>
+        <ATTRIBUTE NAME ="Enable Test Load" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="$Source connection value" VALUE =""/>
+        <ATTRIBUTE NAME ="$Target connection value" VALUE =""/>
+        <ATTRIBUTE NAME ="Treat source rows as" VALUE ="Data driven"/>
+        <ATTRIBUTE NAME ="Commit Type" VALUE ="Target"/>
+        <ATTRIBUTE NAME ="Commit Interval" VALUE ="10000"/>
+        <ATTRIBUTE NAME ="Commit On End Of File" VALUE ="YES"/>
+        <ATTRIBUTE NAME ="Rollback Transactions on Errors" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Recovery Strategy" VALUE ="Restart task"/>
+        <ATTRIBUTE NAME ="Java Classpath" VALUE =""/>
+        <ATTRIBUTE NAME ="Performance" VALUE =""/>
+        <ATTRIBUTE NAME ="DTM buffer size" VALUE ="Auto"/>
+        <ATTRIBUTE NAME ="Collect performance data" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Write performance data to repository" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Incremental Aggregation" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Enable high precision" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Session retry on deadlock" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Pushdown Optimization" VALUE ="None"/>
+        <ATTRIBUTE NAME ="Allow Temporary View for Pushdown" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Allow Temporary Sequence for Pushdown" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Allow Pushdown for User Incompatible Connections" VALUE ="NO"/>
+    </SESSION>
+    <SESSION DESCRIPTION ="" ISVALID ="YES" MAPPINGNAME ="RdwyExplodeLinearHistory" NAME ="s_RoadwayLinearHistory" REUSABLE ="YES" SORTORDER ="Binary" VERSIONNUMBER ="1">
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="1" SINSTANCENAME ="RoadwayLinear2004" STAGE ="1" TRANSFORMATIONNAME ="RoadwayLinear2004" TRANSFORMATIONTYPE ="Target Definition"/>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="History2004" STAGE ="0" TRANSFORMATIONNAME ="History2004" TRANSFORMATIONTYPE ="Source Definition"/>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="lkpRecordType2SpeedDecr" STAGE ="2" TRANSFORMATIONNAME ="lkpRecordType2SpeedDecr" TRANSFORMATIONTYPE ="Lookup Procedure">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+            <ATTRIBUTE NAME ="Connection Information" VALUE ="Relational:DS02TARIS"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="expStrainRecordType2Speed" STAGE ="2" TRANSFORMATIONNAME ="expStrainRecordType2Speed" TRANSFORMATIONTYPE ="Expression">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="expChangeABInd" STAGE ="2" TRANSFORMATIONNAME ="expChangeABInd" TRANSFORMATIONTYPE ="Expression">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="lkpRecordType2SpeedIncr" STAGE ="2" TRANSFORMATIONNAME ="lkpRecordType2SpeedIncr" TRANSFORMATIONTYPE ="Lookup Procedure">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+            <ATTRIBUTE NAME ="Lookup Sql Override" VALUE ="SELECT Record_Type_2.record_type as record_type, Record_Type_2.rdwy_inventory_dirn as rdwy_inventory_dirn, Record_Type_2.speed_lmt_legal_speed as speed_lmt_legal_speed, &#xD;&#xA;Record_Type_2.misc_feature_desc as misc_feature_desc, Record_Type_2.sr_num as sr_num, Record_Type_2.rrt as rrt, &#xD;&#xA;Record_Type_2.rrq as rrq, Record_Type_2.arm as arm, Record_Type_2.srmp as srmp, Record_Type_2.srmp_ab_ind as srmp_ab_ind &#xD;&#xA;FROM Record_Type_2 &#xD;&#xA;WHERE Record_Type_2.speed_lmt_legal_speed &lt;&gt; &apos;&apos; AND Record_Type_2.rdwy_inventory_dirn = &apos;I&apos;&#xD;&#xA;ORDER BY Record_Type_2.sr_num, Record_Type_2.rrt, Record_Type_2.rrq, Record_Type_2.arm, Record_Type_2.speed_lmt_legal_speed DESC, Record_Type_2.rdwy_inventory_dirn--"/>
+            <ATTRIBUTE NAME ="Connection Information" VALUE ="Relational:DS02TARIS"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="1" SINSTANCENAME ="SQ_History2004" STAGE ="2" TRANSFORMATIONNAME ="SQ_History2004" TRANSFORMATIONTYPE ="Source Qualifier">
+            <ATTRIBUTE NAME ="Sql Query" VALUE ="SELECT History2004.SRLocationReferenceID, History2004.StateRouteNumber, History2004.RelatedRoadwayTypeCode, History2004.RelatedRoadwayQualifier, History2004.SRID, History2004.ARM, History2004.SRMP, History2004.AB, History2004.NumberOfLanesIncreasing, History2004.NumberofLanesDecreasing &#xD;&#xA;FROM&#xD;&#xA; History2004  &#xD;&#xA;ORDER BY History2004.StateRouteNumber, History2004.RelatedRoadwayTypeCode, History2004.RelatedRoadwayQualifier, History2004.ARM--"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="EXPTRANS" STAGE ="2" TRANSFORMATIONNAME ="EXPTRANS" TRANSFORMATIONTYPE ="Expression">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <CONFIGREFERENCE REFOBJECTNAME ="default_session_config" TYPE ="Session config"/>
+        <SESSIONEXTENSION NAME ="Relational Writer" SINSTANCENAME ="RoadwayLinear2004" SUBTYPE ="Relational Writer" TRANSFORMATIONTYPE ="Target Definition" TYPE ="WRITER">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="" VARIABLE =""/>
+            <ATTRIBUTE NAME ="Target load type" VALUE ="Bulk"/>
+            <ATTRIBUTE NAME ="Insert" VALUE ="YES"/>
+            <ATTRIBUTE NAME ="Update as Update" VALUE ="YES"/>
+            <ATTRIBUTE NAME ="Update as Insert" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Update else Insert" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Delete" VALUE ="YES"/>
+            <ATTRIBUTE NAME ="Truncate target table option" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Reject file directory" VALUE ="$PMBadFileDir&#x5c;"/>
+            <ATTRIBUTE NAME ="Reject filename" VALUE ="roadwaylinear20041.bad"/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION DSQINSTNAME ="SQ_History2004" DSQINSTTYPE ="Source Qualifier" NAME ="Relational Reader" SINSTANCENAME ="History2004" SUBTYPE ="Relational Reader" TRANSFORMATIONTYPE ="Source Definition" TYPE ="READER"/>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpRecordType2SpeedDecr" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="DS02TARIS" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpRecordType2SpeedIncr" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="DS02TARIS" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Reader" SINSTANCENAME ="SQ_History2004" SUBTYPE ="Relational Reader" TRANSFORMATIONTYPE ="Source Qualifier" TYPE ="READER">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <ATTRIBUTE NAME ="General Options" VALUE =""/>
+        <ATTRIBUTE NAME ="Write Backward Compatible Session Log File" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Session Log File Name" VALUE ="s_RoadwayLinearHistory.log"/>
+        <ATTRIBUTE NAME ="Session Log File directory" VALUE ="$PMSessionLogDir&#x5c;"/>
+        <ATTRIBUTE NAME ="Parameter Filename" VALUE =""/>
+        <ATTRIBUTE NAME ="Enable Test Load" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="$Source connection value" VALUE ="Relational:RoadwayDataMart"/>
+        <ATTRIBUTE NAME ="$Target connection value" VALUE ="Relational:RoadwayDataMart"/>
+        <ATTRIBUTE NAME ="Treat source rows as" VALUE ="Insert"/>
+        <ATTRIBUTE NAME ="Commit Type" VALUE ="Target"/>
+        <ATTRIBUTE NAME ="Commit Interval" VALUE ="10000"/>
+        <ATTRIBUTE NAME ="Commit On End Of File" VALUE ="YES"/>
+        <ATTRIBUTE NAME ="Rollback Transactions on Errors" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Recovery Strategy" VALUE ="Restart task"/>
+        <ATTRIBUTE NAME ="Java Classpath" VALUE =""/>
+        <ATTRIBUTE NAME ="Performance" VALUE =""/>
+        <ATTRIBUTE NAME ="DTM buffer size" VALUE ="Auto"/>
+        <ATTRIBUTE NAME ="Collect performance data" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Write performance data to repository" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Incremental Aggregation" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Enable high precision" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Session retry on deadlock" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Pushdown Optimization" VALUE ="None"/>
+        <ATTRIBUTE NAME ="Allow Temporary View for Pushdown" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Allow Temporary Sequence for Pushdown" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Allow Pushdown for User Incompatible Connections" VALUE ="NO"/>
+    </SESSION>
+    <SESSION DESCRIPTION ="" ISVALID ="YES" MAPPINGNAME ="RoadwayGeometricsUpdate" NAME ="s_RoadwayGeometricUpdate" REUSABLE ="YES" SORTORDER ="Binary" VERSIONNUMBER ="1">
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="2" SINSTANCENAME ="RoadwayGeometric" STAGE ="1" TRANSFORMATIONNAME ="RoadwayGeometric" TRANSFORMATIONTYPE ="Target Definition"/>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="expConcatenateRoadwayGeometrics" STAGE ="4" TRANSFORMATIONNAME ="expConcatenateRoadwayGeometrics" TRANSFORMATIONTYPE ="Expression">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="getDigest" STAGE ="4" TRANSFORMATIONNAME ="getDigest" TRANSFORMATIONTYPE ="External Procedure">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="expSetDWDates" STAGE ="2" TRANSFORMATIONNAME ="expSetDWDates" TRANSFORMATIONTYPE ="Expression">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="SEQTRANS" STAGE ="0" TRANSFORMATIONNAME ="SEQTRANS" TRANSFORMATIONTYPE ="Sequence"/>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="lkpRoadwayGeometric" STAGE ="4" TRANSFORMATIONNAME ="lkpRoadwayGeometric" TRANSFORMATIONTYPE ="Lookup Procedure">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="FILTRANS2" STAGE ="4" TRANSFORMATIONNAME ="FILTRANS2" TRANSFORMATIONTYPE ="Filter">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="HASH AUTO KEYS" PIPELINE ="2" SINSTANCENAME ="AGGTRANS" STAGE ="2" TRANSFORMATIONNAME ="AGGTRANS" TRANSFORMATIONTYPE ="Aggregator">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpRoadwayGeometric" STAGE ="4" TRANSFORMATIONNAME ="mptCreateRoadwayGeometricsUpdate.lkpRoadwayGeometric" TRANSFORMATIONTYPE ="Lookup Procedure">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpOriginalTurn_Ln_Lgth" STAGE ="0" TRANSFORMATIONNAME ="mptCreateRoadwayGeometricsUpdate.lkpOriginalTurn_Ln_Lgth" TRANSFORMATIONTYPE ="Lookup Procedure">
+            <ATTRIBUTE NAME ="Connection Information" VALUE ="Relational:DS02TARIS"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpOriginalAcc_Ln_Lgth" STAGE ="0" TRANSFORMATIONNAME ="mptCreateRoadwayGeometricsUpdate.lkpOriginalAcc_Ln_Lgth" TRANSFORMATIONTYPE ="Lookup Procedure"/>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpOriginalTurn_Ln_Width" STAGE ="0" TRANSFORMATIONNAME ="mptCreateRoadwayGeometricsUpdate.lkpOriginalTurn_Ln_Width" TRANSFORMATIONTYPE ="Lookup Procedure"/>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.expBlankToNots" STAGE ="4" TRANSFORMATIONNAME ="mptCreateRoadwayGeometricsUpdate.expBlankToNots" TRANSFORMATIONTYPE ="Expression">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpOriginalAcc_Ln_Width" STAGE ="0" TRANSFORMATIONNAME ="mptCreateRoadwayGeometricsUpdate.lkpOriginalAcc_Ln_Width" TRANSFORMATIONTYPE ="Lookup Procedure"/>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.expDefaultValues" STAGE ="4" TRANSFORMATIONNAME ="mptCreateRoadwayGeometricsUpdate.expDefaultValues" TRANSFORMATIONTYPE ="Expression">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="History2004" STAGE ="0" TRANSFORMATIONNAME ="History2004" TRANSFORMATIONTYPE ="Source Definition"/>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="2" SINSTANCENAME ="SQ_History2004" STAGE ="4" TRANSFORMATIONNAME ="SQ_History2004" TRANSFORMATIONTYPE ="Source Qualifier">
+            <ATTRIBUTE NAME ="Sql Query" VALUE ="SELECT History2004.StateRouteNumber, History2004.RelatedRoadwayTypeCode, History2004.RelatedRoadwayQualifier, History2004.ARM, History2004.RoadwayGeometricID &#xD;&#xA;FROM&#xD;&#xA; History2004 &#xD;&#xA;ORDER BY History2004.StateRouteNumber, History2004.RelatedRoadwayTypeCode, History2004.RelatedRoadwayQualifier, History2004.ARM--"/>
+        </SESSTRANSFORMATIONINST>
+        <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="2" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpRoadwayHistory" STAGE ="4" TRANSFORMATIONNAME ="mptCreateRoadwayGeometricsUpdate.lkpRoadwayHistory" TRANSFORMATIONTYPE ="Lookup Procedure">
+            <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+            <ATTRIBUTE NAME ="Connection Information" VALUE ="Relational:RoadwayDataMart"/>
+        </SESSTRANSFORMATIONINST>
+        <CONFIGREFERENCE REFOBJECTNAME ="default_session_config" TYPE ="Session config"/>
+        <SESSIONEXTENSION NAME ="Relational Writer" SINSTANCENAME ="RoadwayGeometric" SUBTYPE ="Relational Writer" TRANSFORMATIONTYPE ="Target Definition" TYPE ="WRITER">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            <ATTRIBUTE NAME ="Target load type" VALUE ="Bulk"/>
+            <ATTRIBUTE NAME ="Insert" VALUE ="YES"/>
+            <ATTRIBUTE NAME ="Update as Update" VALUE ="YES"/>
+            <ATTRIBUTE NAME ="Update as Insert" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Update else Insert" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Delete" VALUE ="YES"/>
+            <ATTRIBUTE NAME ="Truncate target table option" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Reject file directory" VALUE ="$PMBadFileDir&#x5c;"/>
+            <ATTRIBUTE NAME ="Reject filename" VALUE ="roadwaygeometric1.bad"/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpRoadwayGeometric" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="Relational" VARIABLE ="$Target"/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpRoadwayGeometric" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="Relational" VARIABLE ="$Target"/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpOriginalTurn_Ln_Lgth" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="DS02TARIS" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpOriginalAcc_Ln_Lgth" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpOriginalTurn_Ln_Width" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpOriginalAcc_Ln_Width" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION DSQINSTNAME ="SQ_History2004" DSQINSTTYPE ="Source Qualifier" NAME ="Relational Reader" SINSTANCENAME ="History2004" SUBTYPE ="Relational Reader" TRANSFORMATIONTYPE ="Source Definition" TYPE ="READER"/>
+        <SESSIONEXTENSION NAME ="Relational Reader" SINSTANCENAME ="SQ_History2004" SUBTYPE ="Relational Reader" TRANSFORMATIONTYPE ="Source Qualifier" TYPE ="READER">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpRoadwayHistory" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+            <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+        </SESSIONEXTENSION>
+        <ATTRIBUTE NAME ="General Options" VALUE =""/>
+        <ATTRIBUTE NAME ="Write Backward Compatible Session Log File" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Session Log File Name" VALUE ="s_RoadwayGeometricUpdate.log"/>
+        <ATTRIBUTE NAME ="Session Log File directory" VALUE ="$PMSessionLogDir&#x5c;"/>
+        <ATTRIBUTE NAME ="Parameter Filename" VALUE =""/>
+        <ATTRIBUTE NAME ="Enable Test Load" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="$Source connection value" VALUE =""/>
+        <ATTRIBUTE NAME ="$Target connection value" VALUE =""/>
+        <ATTRIBUTE NAME ="Treat source rows as" VALUE ="Insert"/>
+        <ATTRIBUTE NAME ="Commit Type" VALUE ="Target"/>
+        <ATTRIBUTE NAME ="Commit Interval" VALUE ="10000"/>
+        <ATTRIBUTE NAME ="Commit On End Of File" VALUE ="YES"/>
+        <ATTRIBUTE NAME ="Rollback Transactions on Errors" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Recovery Strategy" VALUE ="Restart task"/>
+        <ATTRIBUTE NAME ="Java Classpath" VALUE =""/>
+        <ATTRIBUTE NAME ="Performance" VALUE =""/>
+        <ATTRIBUTE NAME ="DTM buffer size" VALUE ="Auto"/>
+        <ATTRIBUTE NAME ="Collect performance data" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Write performance data to repository" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Incremental Aggregation" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Enable high precision" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Session retry on deadlock" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Pushdown Optimization" VALUE ="None"/>
+        <ATTRIBUTE NAME ="Allow Temporary View for Pushdown" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Allow Temporary Sequence for Pushdown" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Allow Pushdown for User Incompatible Connections" VALUE ="NO"/>
+    </SESSION>
+    <WORKFLOW DESCRIPTION ="" ISENABLED ="YES" ISRUNNABLESERVICE ="NO" ISSERVICE ="NO" ISVALID ="YES" NAME ="RoadwayHistoryUpdate" REUSABLE_SCHEDULER ="NO" SCHEDULERNAME ="Scheduler" SERVERNAME ="HQOLYMAPPIM1D" SERVER_DOMAINNAME ="Domain_HQOLYMAPPIM1D" SUSPEND_ON_ERROR ="NO" TASKS_MUST_RUN_ON_SERVER ="NO" VERSIONNUMBER ="1">
+        <SCHEDULER DESCRIPTION ="" NAME ="Scheduler" REUSABLE ="NO" VERSIONNUMBER ="1">
+            <SCHEDULEINFO SCHEDULETYPE ="ONDEMAND"/>
+        </SCHEDULER>
+        <TASK DESCRIPTION ="" NAME ="Start" REUSABLE ="NO" TYPE ="Start" VERSIONNUMBER ="1"/>
+        <SESSION DESCRIPTION ="" ISVALID ="YES" MAPPINGNAME ="UpdateRdwyLinearHistory" NAME ="s_UpdateRdwyLinearHistory" REUSABLE ="NO" SORTORDER ="Binary" VERSIONNUMBER ="1">
+            <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="stgEndPointData" STAGE ="0" TRANSFORMATIONNAME ="stgEndPointData" TRANSFORMATIONTYPE ="Source Definition"/>
+            <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="expChangeEndPointARMandSRID" STAGE ="2" TRANSFORMATIONNAME ="expChangeEndPointARMandSRID" TRANSFORMATIONTYPE ="Expression">
+                <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+            </SESSTRANSFORMATIONINST>
+            <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="expChangeEndPointARM" STAGE ="2" TRANSFORMATIONNAME ="expChangeEndPointARM" TRANSFORMATIONTYPE ="Expression">
+                <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+            </SESSTRANSFORMATIONINST>
+            <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="1" SINSTANCENAME ="SQ_stgEndPointData" STAGE ="2" TRANSFORMATIONNAME ="SQ_stgEndPointData" TRANSFORMATIONTYPE ="Source Qualifier"/>
+            <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="UPDTRANS" STAGE ="2" TRANSFORMATIONNAME ="UPDTRANS" TRANSFORMATIONTYPE ="Update Strategy">
+                <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+            </SESSTRANSFORMATIONINST>
+            <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="1" SINSTANCENAME ="RoadwayLinear2004" STAGE ="3" TRANSFORMATIONNAME ="RoadwayLinear2004" TRANSFORMATIONTYPE ="Target Definition"/>
+            <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="lkpHistory2004" STAGE ="2" TRANSFORMATIONNAME ="lkpHistory2004" TRANSFORMATIONTYPE ="Lookup Procedure">
+                <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
+                <ATTRIBUTE NAME ="Connection Information" VALUE ="Relational:RoadwayDataMart"/>
+            </SESSTRANSFORMATIONINST>
+            <CONFIGREFERENCE REFOBJECTNAME ="default_session_config" TYPE ="Session config"/>
+            <SESSIONEXTENSION DSQINSTNAME ="SQ_stgEndPointData" DSQINSTTYPE ="Source Qualifier" NAME ="Relational Reader" SINSTANCENAME ="stgEndPointData" SUBTYPE ="Relational Reader" TRANSFORMATIONTYPE ="Source Definition" TYPE ="READER"/>
+            <SESSIONEXTENSION NAME ="Relational Reader" SINSTANCENAME ="SQ_stgEndPointData" SUBTYPE ="Relational Reader" TRANSFORMATIONTYPE ="Source Qualifier" TYPE ="READER">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="DS02TARIS" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            </SESSIONEXTENSION>
+            <SESSIONEXTENSION NAME ="Relational Writer" SINSTANCENAME ="RoadwayLinear2004" SUBTYPE ="Relational Writer" TRANSFORMATIONTYPE ="Target Definition" TYPE ="WRITER">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+                <ATTRIBUTE NAME ="Target load type" VALUE ="Bulk"/>
+                <ATTRIBUTE NAME ="Insert" VALUE ="YES"/>
+                <ATTRIBUTE NAME ="Update as Update" VALUE ="YES"/>
+                <ATTRIBUTE NAME ="Update as Insert" VALUE ="NO"/>
+                <ATTRIBUTE NAME ="Update else Insert" VALUE ="NO"/>
+                <ATTRIBUTE NAME ="Delete" VALUE ="YES"/>
+                <ATTRIBUTE NAME ="Truncate target table option" VALUE ="NO"/>
+                <ATTRIBUTE NAME ="Reject file directory" VALUE ="$PMBadFileDir&#x5c;"/>
+                <ATTRIBUTE NAME ="Reject filename" VALUE ="roadwaylinear20041.bad"/>
+            </SESSIONEXTENSION>
+            <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpHistory2004" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            </SESSIONEXTENSION>
+            <ATTRIBUTE NAME ="General Options" VALUE =""/>
+            <ATTRIBUTE NAME ="Write Backward Compatible Session Log File" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Session Log File Name" VALUE ="s_UpdateRdwyLinearHistory.log"/>
+            <ATTRIBUTE NAME ="Session Log File directory" VALUE ="$PMSessionLogDir&#x5c;"/>
+            <ATTRIBUTE NAME ="Parameter Filename" VALUE =""/>
+            <ATTRIBUTE NAME ="Enable Test Load" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="$Source connection value" VALUE =""/>
+            <ATTRIBUTE NAME ="$Target connection value" VALUE =""/>
+            <ATTRIBUTE NAME ="Treat source rows as" VALUE ="Data driven"/>
+            <ATTRIBUTE NAME ="Commit Type" VALUE ="Target"/>
+            <ATTRIBUTE NAME ="Commit Interval" VALUE ="10000"/>
+            <ATTRIBUTE NAME ="Commit On End Of File" VALUE ="YES"/>
+            <ATTRIBUTE NAME ="Rollback Transactions on Errors" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Recovery Strategy" VALUE ="Restart task"/>
+            <ATTRIBUTE NAME ="Java Classpath" VALUE =""/>
+            <ATTRIBUTE NAME ="Performance" VALUE =""/>
+            <ATTRIBUTE NAME ="DTM buffer size" VALUE ="Auto"/>
+            <ATTRIBUTE NAME ="Collect performance data" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Write performance data to repository" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Incremental Aggregation" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Enable high precision" VALUE ="YES"/>
+            <ATTRIBUTE NAME ="Session retry on deadlock" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Pushdown Optimization" VALUE ="None"/>
+            <ATTRIBUTE NAME ="Allow Temporary View for Pushdown" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Allow Temporary Sequence for Pushdown" VALUE ="NO"/>
+            <ATTRIBUTE NAME ="Allow Pushdown for User Incompatible Connections" VALUE ="NO"/>
+        </SESSION>
+        <TASKINSTANCE DESCRIPTION ="" ISENABLED ="YES" NAME ="Start" REUSABLE ="NO" TASKNAME ="Start" TASKTYPE ="Start"/>
+        <TASKINSTANCE DESCRIPTION ="" FAIL_PARENT_IF_INSTANCE_DID_NOT_RUN ="NO" FAIL_PARENT_IF_INSTANCE_FAILS ="NO" ISENABLED ="YES" NAME ="s_UpdateSRLocationReferenceGeometricID" REUSABLE ="YES" TASKNAME ="s_UpdateSRLocationReferenceGeometricID" TASKTYPE ="Session" TREAT_INPUTLINK_AS_AND ="YES">
+            <ATTRIBUTE NAME ="$Target connection value" VALUE ="Relational:RoadwayDataMart"/>
+            <SESSIONEXTENSION NAME ="Relational Reader" SINSTANCENAME ="SQ_History2004" SUBTYPE ="Relational Reader" TRANSFORMATIONTYPE ="Source Qualifier" TYPE ="READER">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            </SESSIONEXTENSION>
+            <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpRoadwayHistory" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            </SESSIONEXTENSION>
+            <SESSIONEXTENSION NAME ="Relational Writer" SINSTANCENAME ="SRLocationReference20070915" SUBTYPE ="Relational Writer" TRANSFORMATIONTYPE ="Target Definition" TYPE ="WRITER">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            </SESSIONEXTENSION>
+        </TASKINSTANCE>
+        <TASKINSTANCE DESCRIPTION ="" FAIL_PARENT_IF_INSTANCE_DID_NOT_RUN ="NO" FAIL_PARENT_IF_INSTANCE_FAILS ="NO" ISENABLED ="YES" NAME ="s_RoadwayGeometricUpdate" REUSABLE ="YES" TASKNAME ="s_RoadwayGeometricUpdate" TASKTYPE ="Session" TREAT_INPUTLINK_AS_AND ="YES">
+            <ATTRIBUTE NAME ="$Source connection value" VALUE ="Relational:RoadwayDataMart"/>
+            <ATTRIBUTE NAME ="$Target connection value" VALUE ="Relational:RoadwayDataMart"/>
+            <SESSIONEXTENSION NAME ="Relational Writer" SINSTANCENAME ="RoadwayGeometric" SUBTYPE ="Relational Writer" TRANSFORMATIONTYPE ="Target Definition" TYPE ="WRITER">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            </SESSIONEXTENSION>
+            <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpRoadwayGeometric" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            </SESSIONEXTENSION>
+            <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpRoadwayGeometric" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            </SESSIONEXTENSION>
+            <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpOriginalTurn_Ln_Lgth" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="DS02TARIS" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            </SESSIONEXTENSION>
+            <SESSIONEXTENSION NAME ="Relational Reader" SINSTANCENAME ="SQ_History2004" SUBTYPE ="Relational Reader" TRANSFORMATIONTYPE ="Source Qualifier" TYPE ="READER">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            </SESSIONEXTENSION>
+            <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="mptCreateRoadwayGeometricsUpdate.lkpRoadwayHistory" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            </SESSIONEXTENSION>
+        </TASKINSTANCE>
+        <TASKINSTANCE DESCRIPTION ="" FAIL_PARENT_IF_INSTANCE_DID_NOT_RUN ="NO" FAIL_PARENT_IF_INSTANCE_FAILS ="NO" ISENABLED ="YES" NAME ="s_RoadwayLinearHistory" REUSABLE ="YES" TASKNAME ="s_RoadwayLinearHistory" TASKTYPE ="Session" TREAT_INPUTLINK_AS_AND ="YES">
+            <SESSIONEXTENSION NAME ="Relational Writer" SINSTANCENAME ="RoadwayLinear2004" SUBTYPE ="Relational Writer" TRANSFORMATIONTYPE ="Target Definition" TYPE ="WRITER">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="RoadwayDataMart" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+                <ATTRIBUTE NAME ="Truncate target table option" VALUE ="YES"/>
+            </SESSIONEXTENSION>
+            <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpRecordType2SpeedDecr" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="DS02TARIS" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            </SESSIONEXTENSION>
+            <SESSIONEXTENSION NAME ="Relational Lookup" SINSTANCENAME ="lkpRecordType2SpeedIncr" SUBTYPE ="Relational Lookup" TRANSFORMATIONTYPE ="Lookup Procedure" TYPE ="LOOKUPEXTENSION">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="DS02TARIS" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Microsoft SQL Server" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+            </SESSIONEXTENSION>
+        </TASKINSTANCE>
+        <TASKINSTANCE DESCRIPTION ="" FAIL_PARENT_IF_INSTANCE_DID_NOT_RUN ="NO" FAIL_PARENT_IF_INSTANCE_FAILS ="NO" ISENABLED ="YES" NAME ="s_UpdateRdwyLinearHistory" REUSABLE ="NO" TASKNAME ="s_UpdateRdwyLinearHistory" TASKTYPE ="Session" TREAT_INPUTLINK_AS_AND ="YES"/>
+        <WORKFLOWLINK CONDITION ="" FROMTASK ="s_RoadwayGeometricUpdate" TOTASK ="s_UpdateSRLocationReferenceGeometricID"/>
+        <WORKFLOWLINK CONDITION ="" FROMTASK ="s_UpdateRdwyLinearHistory" TOTASK ="s_RoadwayGeometricUpdate"/>
+        <WORKFLOWLINK CONDITION ="" FROMTASK ="Start" TOTASK ="s_RoadwayLinearHistory"/>
+        <WORKFLOWLINK CONDITION ="" FROMTASK ="s_RoadwayLinearHistory" TOTASK ="s_UpdateRdwyLinearHistory"/>
+        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task started" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$Start.StartTime" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task completed" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$Start.EndTime" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$Start.Status" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of the previous task that is not disabled" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$Start.PrevTaskStatus" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Error code for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$Start.ErrorCode" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="Error message for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$Start.ErrorMsg" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task started" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateSRLocationReferenceGeometricID.StartTime" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task completed" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateSRLocationReferenceGeometricID.EndTime" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateSRLocationReferenceGeometricID.Status" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of the previous task that is not disabled" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateSRLocationReferenceGeometricID.PrevTaskStatus" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Error code for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateSRLocationReferenceGeometricID.ErrorCode" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="Error message for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateSRLocationReferenceGeometricID.ErrorMsg" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows successfully read" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateSRLocationReferenceGeometricID.SrcSuccessRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows failed to read" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateSRLocationReferenceGeometricID.SrcFailedRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows successfully loaded" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateSRLocationReferenceGeometricID.TgtSuccessRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows failed to load" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateSRLocationReferenceGeometricID.TgtFailedRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Total number of transformation errors" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateSRLocationReferenceGeometricID.TotalTransErrors" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="First error code" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateSRLocationReferenceGeometricID.FirstErrorCode" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="First error message" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateSRLocationReferenceGeometricID.FirstErrorMsg" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task started" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayGeometricUpdate.StartTime" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task completed" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayGeometricUpdate.EndTime" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayGeometricUpdate.Status" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of the previous task that is not disabled" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayGeometricUpdate.PrevTaskStatus" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Error code for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayGeometricUpdate.ErrorCode" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="Error message for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayGeometricUpdate.ErrorMsg" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows successfully read" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayGeometricUpdate.SrcSuccessRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows failed to read" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayGeometricUpdate.SrcFailedRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows successfully loaded" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayGeometricUpdate.TgtSuccessRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows failed to load" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayGeometricUpdate.TgtFailedRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Total number of transformation errors" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayGeometricUpdate.TotalTransErrors" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="First error code" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayGeometricUpdate.FirstErrorCode" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="First error message" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayGeometricUpdate.FirstErrorMsg" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task started" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayLinearHistory.StartTime" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task completed" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayLinearHistory.EndTime" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayLinearHistory.Status" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of the previous task that is not disabled" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayLinearHistory.PrevTaskStatus" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Error code for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayLinearHistory.ErrorCode" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="Error message for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayLinearHistory.ErrorMsg" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows successfully read" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayLinearHistory.SrcSuccessRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows failed to read" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayLinearHistory.SrcFailedRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows successfully loaded" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayLinearHistory.TgtSuccessRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows failed to load" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayLinearHistory.TgtFailedRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Total number of transformation errors" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayLinearHistory.TotalTransErrors" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="First error code" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayLinearHistory.FirstErrorCode" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="First error message" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_RoadwayLinearHistory.FirstErrorMsg" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task started" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateRdwyLinearHistory.StartTime" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task completed" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateRdwyLinearHistory.EndTime" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateRdwyLinearHistory.Status" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of the previous task that is not disabled" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateRdwyLinearHistory.PrevTaskStatus" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Error code for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateRdwyLinearHistory.ErrorCode" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="Error message for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateRdwyLinearHistory.ErrorMsg" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows successfully read" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateRdwyLinearHistory.SrcSuccessRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows failed to read" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateRdwyLinearHistory.SrcFailedRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows successfully loaded" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateRdwyLinearHistory.TgtSuccessRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Rows failed to load" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateRdwyLinearHistory.TgtFailedRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Total number of transformation errors" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateRdwyLinearHistory.TotalTransErrors" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="First error code" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateRdwyLinearHistory.FirstErrorCode" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="First error message" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_UpdateRdwyLinearHistory.FirstErrorMsg" USERDEFINED ="NO"/>
+        <ATTRIBUTE NAME ="Parameter Filename" VALUE =""/>
+        <ATTRIBUTE NAME ="Write Backward Compatible Workflow Log File" VALUE ="YES"/>
+        <ATTRIBUTE NAME ="Workflow Log File Name" VALUE ="RoadwayHistoryUpdate.log"/>
+        <ATTRIBUTE NAME ="Workflow Log File Directory" VALUE ="$PMWorkflowLogDir&#x5c;"/>
+        <ATTRIBUTE NAME ="Save Workflow log by" VALUE ="By runs"/>
+        <ATTRIBUTE NAME ="Save workflow log for these runs" VALUE ="0"/>
+        <ATTRIBUTE NAME ="Service Name" VALUE =""/>
+        <ATTRIBUTE NAME ="Service Timeout" VALUE ="0"/>
+        <ATTRIBUTE NAME ="Is Service Visible" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Is Service Protected" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Enable HA recovery" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Automatically recover terminated tasks" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Service Level Name" VALUE ="Default"/>
+        <ATTRIBUTE NAME ="Allow concurrent run with unique run instance name" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Allow concurrent run with same run instance name" VALUE ="NO"/>
+        <ATTRIBUTE NAME ="Maximum number of concurrent runs" VALUE ="0"/>
+        <ATTRIBUTE NAME ="Assigned Web Services Hubs" VALUE =""/>
+        <ATTRIBUTE NAME ="Maximum number of concurrent runs per Hub" VALUE ="1000"/>
+        <ATTRIBUTE NAME ="Expected Service Time" VALUE ="1"/>
+        <METADATAEXTENSION DATATYPE ="STRING" DESCRIPTION ="" DOMAINNAME ="User Defined Metadata Domain" ISCLIENTEDITABLE ="YES" ISCLIENTVISIBLE ="YES" ISREUSABLE ="NO" ISSHAREREAD ="NO" ISSHAREWRITE ="NO" MAXLENGTH ="10" NAME ="Creation_Date" VALUE ="" VENDORNAME ="INFORMATICA"/>
+        <METADATAEXTENSION DATATYPE ="STRING" DESCRIPTION ="" DOMAINNAME ="User Defined Metadata Domain" ISCLIENTEDITABLE ="YES" ISCLIENTVISIBLE ="YES" ISREUSABLE ="NO" ISSHAREREAD ="NO" ISSHAREWRITE ="NO" MAXLENGTH ="50" NAME ="workflow_Author" VALUE ="" VENDORNAME ="INFORMATICA"/>
+    </WORKFLOW>
+</FOLDER>
+</REPOSITORY>
+</POWERMART>

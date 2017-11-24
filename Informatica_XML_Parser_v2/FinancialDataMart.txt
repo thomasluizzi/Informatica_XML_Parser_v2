@@ -1,0 +1,3008 @@
+1: s_stgDPIN
+$Source connection value: 
+$Target connection value: 
+	stgDPIN
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_dpin_DPIN
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+2: s_stgBPRO
+$Source connection value: 
+$Target connection value: 
+	BPRO
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_BPRO_BPRO
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+3: s_stgWATH
+$Source connection value: 
+$Target connection value: 
+	stgWATH
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_wath_WATH
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+4: s_stgALOC
+$Source connection value: 
+$Target connection value: 
+	stgALOC
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_aloc_ALOC
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+5: s_stgFUND
+$Source connection value: 
+$Target connection value: 
+	FUND
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_fund_FUND
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+6: s_stgTrialBalance3_LoadDataToFDM_GeneralLedgerSnapshotFact
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	GeneralLedgerTrialBalanceFactUpate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpBalanceSheetAccount
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpAgency
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpFund
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpAccountType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpGeneralLedgerTrialBalanceFact
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	GeneralLedgerTrialBalanceFactInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpFiscalMonth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_stgTrialBalance
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+7: s_stgAPRF
+$Source connection value: 
+$Target connection value: 
+	APRF
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_aprf_APRF
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+8: s_VendorGLCustomer
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	VendorInsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgGENLDD2Clean
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpVendor
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+9: s_stgCSPA
+$Source connection value: 
+$Target connection value: $DBConnectionTarget
+	SQ_cspa_CSPA
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	stgCSPA
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpstgMAM54011
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgMAM5401
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_csph_CSPH
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+10: s_stgACTV
+$Source connection value: 
+$Target connection value: 
+	ACTV
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_actv_ACTV
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+11: s_stgBRTE
+$Source connection value: 
+$Target connection value: 
+	BRTE
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_brte_BRTE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+12: s_stgOREL
+$Source connection value: 
+$Target connection value: 
+	stgOREL
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_orel_OREL
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+13: s_stgRSRC
+$Source connection value: $DBConnectionSource
+$Target connection value: 
+	stgRSRC
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_rsrc_RSRC
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+14: s_stgYTDLED
+$Source connection value: 
+$Target connection value: 
+	stgYTDLED
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	AMGDSQ_ytdled_YTDLED
+		 SUBTYPE: PowerExchange Reader for Sequential files
+		 CONNECTIONNAME: PWX_NRDB_CCIS
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+15: s_PurchaseCardDetail
+$Source connection value: Relational:zFinancialReader
+$Target connection value: $DBConnectionTarget
+	PurchaseCardDetailInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	PurchaseCardDetailUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_CardTransaction
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: PCMS
+		 VARIABLE: 
+	lkpPurchaseCardDetail
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+---------------------------------------------------------------------------------------------------------
+16: s_stgALT2
+$Source connection value: 
+$Target connection value: 
+	stgALT2
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_alt2_ALT2
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+17: s_UnitOfMeasure
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	UnitofMeasureInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	UnitofMeasureUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpUnitofMeasure
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgUNIT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+18: s_stgRETP
+$Source connection value: 
+$Target connection value: 
+	stgRETP
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_retp_RETP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+19: s_FiscalPeriod
+$Source connection value: 
+$Target connection value: $DBConnectionTarget
+	WSDOTFiscalPeriod
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_stgAPRD
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpWSDOTFiscalPeriod
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: ConformedDimensionReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+20: s_Object
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	SubSubObjectInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SubSubObjectUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_stgOBJT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpSubSubObject
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpstgOCLS
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgOCAT
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgOTYP
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkp_CAFMObjectCodes
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: CAFMProd
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+21: s_Agency
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	New_Inserts_Agency
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	Updates_Agency
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_stgAGCY
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpAgency
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+22: s_Activity
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	ActivityUpdates
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	ActivityInserts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpActivity
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgACTV
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+23: s_Organization
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	OrganizationUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	OrganizationInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpOrganization
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgSORG
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpstgORGN
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgORGN1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+---------------------------------------------------------------------------------------------------------
+24: s_SubProgram
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	SubProgramInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SubProgramUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpSubProgram
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpstgACAT
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_stgACLS
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+25: s_Fund
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	FundUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	FundInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgFUND
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpFund
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+26: s_AccountType
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	AccountTypeUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	AccountTypeInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAccountType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgACCT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+27: s_WorkOrderAuthorizationBiennFact
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	WorkOrderAuthorizationBiennFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpGroupCategory
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFiscalBiennium
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOrder
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgWATH
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpOranization
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	WorkOrderAuthorizationBiennFact1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpWorkOrderAuthorizationBiennFact
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgGRUP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+28: s_stgPLOP
+$Source connection value: 
+$Target connection value: 
+	SQ_plop_PLOP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	stgPLOP
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+---------------------------------------------------------------------------------------------------------
+29: s_VendorPCMS
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	VendorInsertChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	VendorEndDateChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	VendorInsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpVendorOld
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_Merchant
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpVendor
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+---------------------------------------------------------------------------------------------------------
+30: s_stgAGPR
+$Source connection value: 
+$Target connection value: 
+	stgAGPR
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_agpr_AGPR
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+31: s_VendorArchive
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_Vendor
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	Lkp_StgVSEC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingFinancialReader
+		 VARIABLE: 
+	VendorEndDateChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	VendorInsertChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+---------------------------------------------------------------------------------------------------------
+32: s_stgPPAT
+$Source connection value: 
+$Target connection value: 
+	stgPPAT
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_ppat_NEW_RECORD__
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+33: s_WorkOrder_UpdateCurrentDescription
+$Source connection value: 
+$Target connection value: 
+	WorkOrder
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_WorkOrder
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+34: s_stgACAT
+$Source connection value: 
+$Target connection value: 
+	ACAT
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_acat_ACAT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+35: s_stgGCAT
+$Source connection value: 
+$Target connection value: 
+	GCAT
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_gcat_GCAT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+36: s_stgAGCY
+$Source connection value: 
+$Target connection value: 
+	AGCY
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_agcy_AGCY
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+37: s_stgACCT
+$Source connection value: 
+$Target connection value: 
+	ACCT
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_acct_ACCT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+38: s_stgOCLS
+$Source connection value: 
+$Target connection value: 
+	OCLS
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_oclstrains_NEW_RECORD__
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+39: s_stgBANK
+$Source connection value: 
+$Target connection value: 
+	BANK
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_bank_BANK
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+40: s_stgFDSC
+$Source connection value: 
+$Target connection value: 
+	stgFDSC
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_fdsc_FDSC
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+41: s_ReimbursableAgreement
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	ReimbursableAgreementInsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	ReimbursableAgreementUpdateEndDate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	ReimbursableAgreementInsertChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpReimbursableAgreement
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_stgPRBL
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpAgency
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgSPDT
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgAGPR
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpOrganization
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	mptRetrieveCurrentDateFields.lkpFiscalPeriod
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: ConformedDimensions
+		 VARIABLE: 
+	lkpCustomer
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+---------------------------------------------------------------------------------------------------------
+42: s_PayableAgreement
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	AccountTypeInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	AccountTypeUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpAccountType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_stgACCT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+---------------------------------------------------------------------------------------------------------
+43: s_stgCUST
+$Source connection value: 
+$Target connection value: 
+	stgCUST
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_CUST_CUST
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+44: s_stgGRUP
+$Source connection value: Relational:zStagingFinancialReader
+$Target connection value: $DBConnectionTarget
+	lkpstgMAM5401
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgMAM54011
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	stgGRUP
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	AMGDSQ_grup_GRUP
+		 SUBTYPE: PowerExchange Reader for ADABAS
+		 CONNECTIONNAME: 
+		 VARIABLE: $AppConnectionSource
+	AMGDSQ_gruh_GRUH
+		 SUBTYPE: PowerExchange Reader for ADABAS
+		 CONNECTIONNAME: 
+		 VARIABLE: $AppConnectionSource
+---------------------------------------------------------------------------------------------------------
+45: s_stgMAM5401
+$Source connection value: $DBConnectionSource
+$Target connection value: 
+	stgMAM5401
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_mam5401_MAM5401
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+46: s_stgAPRD
+$Source connection value: 
+$Target connection value: 
+	stgAPRD
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_aprd_APRD
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+47: s_stgSREV
+$Source connection value: 
+$Target connection value: 
+	stgSREV
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_srev_SREV
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+48: s_PurchaseCardDetail_History
+$Source connection value: Relational:zFinancialReader
+$Target connection value: $DBConnectionTarget
+	PurchaseCardDetail
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpPurchaseCardDetail
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_stgPCARD
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+49: s_stgGENLDD2Clean
+$Source connection value: 
+$Target connection value: 
+	stgGENLDD2Clean
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_stgGENLDD2
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpstgOREH
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpGLVendor
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: FinancialDataMart
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+50: s_stgGENLDD2
+$Source connection value: 
+$Target connection value: 
+	stgGENLDD2
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_GENLDD2_GENLDD2
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+51: s_stgACLS
+$Source connection value: 
+$Target connection value: 
+	ACLS
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_acls_ACLS
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+52: s_BalanceSheetAccount
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	BalanceSheetAccountInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	BalanceSheetAccountUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBalanceSheetAccount
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgBACC
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+53: s_WorkOrderGroup
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOrderGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgGRUP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	LKPstgGRUP2_TPD
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	WorkOrderGroupInsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	WorkOrderGroupUpdateChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+---------------------------------------------------------------------------------------------------------
+54: s_ParameterFile
+$Source connection value: 
+$Target connection value: 
+	SQ_ParameterFile
+		 SUBTYPE: File Reader
+	ParameterFile
+		 SUBTYPE: File Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+55: s_stgTrialBalance1_LoadInitialBaselineFromYTDLED
+$Source connection value: 
+$Target connection value: $DBConnectionTarget
+	stgTrialBalance
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_stgYTDLED
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+56: s_DetailPlanMonthlyFact
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	usp_DeleteBienniumFromDetailPlan
+		 SUBTYPE: Stored Procedure
+	DetailPlanMonthlyFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFund
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAgency
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOperation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpSubSubObject
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpSubProgram
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOrderGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpGroupCategory
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFiscalBiennium
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFiscalMonth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpOrganizationa
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgPPATNormalized
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpWorkOperationClass
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOrder
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAppropriation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFundSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpActivity
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+57: s_stgPRPLNormalized
+$Source connection value: 
+$Target connection value: 
+	stgPRPLNormalized
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_stgPRPL
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+58: s_stgAPPR
+$Source connection value: 
+$Target connection value: 
+	APPR
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_appr_APPR
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+59: s_Organization_UpdateParentOrganization
+$Source connection value: 
+$Target connection value: $DBConnectionTarget
+	Organization
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpstgORGN1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingFinancialReader
+		 VARIABLE: 
+	lkpOrganization_ParentOrganizationId
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	SQ_Organization
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+60: s_ExpenditureMonthlySummary
+$Source connection value: 
+$Target connection value: $DBConnectionTarget
+	usp_DeleteBienniumFromExpenditureSummary
+		 SUBTYPE: Stored Procedure
+	ExpenditureMonthlySummaryFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_SummaryExpenditureFactLoad
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+61: s_stgGRUP2ThirdPartyDamages
+$Source connection value: 
+$Target connection value: $DBConnectionTarget
+	stgGRP2
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_grp2_GRP2
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+62: s_GLDimensionTableLoad
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	Fund
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGenFund
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFund
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	Agency
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpAgency
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenAgency
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	AccountType
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	Activity
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	Appropriation
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	BalanceSheetAccount
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	BankAccount
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	BillingCode
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	Organization
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	Sec1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	WorkOperation
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	RevenueSource
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SubSubObject
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	ReceivableType
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	PurchaseAuthority
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGenAccountType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenActivity
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenAppropriation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenBalanceSheet
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenBankAccount
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenOrganization
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenSec1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenWorkOperation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenRevenueSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenSubSubObject
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenPurchaseAuthority
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenReceivableType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenBillingCode
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAccountType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpActivity
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAppropriation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBalanceSheetAccount
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBankAccount
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBillingCode
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpOrganization
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpSec1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOperation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpRevenueSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpSubSubObject
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpPurchaseAuthority
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpReceivableType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SubProgram
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGenSubProgram
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpSubProgram
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	DocumentType
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGenDocumentType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpDocumentType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	YearEndIndicator
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGenYearEndIndicator
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpYearEndIndicator
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	Customer
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen_Vendor
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGen_Customer
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpVendor
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpCustomer
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSServiceRequest
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpServiceRequest
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFacilitiesReader
+		 VARIABLE: 
+	ServiceRequest
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	ControlSectionParcel
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGenControlSectionParcel
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpControlSectionParcel
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenJobClass
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: HumanResourcesDataMart
+		 VARIABLE: 
+	LkupforSGenPayableAgreement
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	WorkOrder
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	JobClass
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: HumanResourcesDataMart
+		 VARIABLE: 
+	FundSource
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpJobClass
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenReimbursableAgreement
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOrder
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenWorkOrder
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFundSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenFundSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	WorkOrderGroup
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpWorkOrderGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenWorkOrderGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	PurchaseCardDetail
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGenPurchaseCardDetail
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpPurchaseCardDetail
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBiennYear
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBiennYear1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	AgreementPayable
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	AgreementReimbursable
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGenAgreementId1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAgreementPayable
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAgreementReimbursable
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	Vendor
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_stgGENLDD2Clean
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+63: s_WorkOrderGroupUpdateCurrentDescription
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	WorkOrderGroup
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_WorkOrderGroup
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LKPstgGRUP
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+---------------------------------------------------------------------------------------------------------
+64: s_stgUNIT
+$Source connection value: 
+$Target connection value: 
+	SQ_unit_UNIT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	stgUNIT
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+---------------------------------------------------------------------------------------------------------
+65: s_stgWORD
+$Source connection value: 
+$Target connection value: 
+	stgWORD
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	AMGDSQ_word_WORD
+		 SUBTYPE: PowerExchange Reader for ADABAS
+		 CONNECTIONNAME: 
+		 VARIABLE: $AppConnectionSource
+---------------------------------------------------------------------------------------------------------
+66: s_stgWONT
+$Source connection value: 
+$Target connection value: 
+	stgWONT
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_wont4_WONT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+67: s_stgFTEC
+$Source connection value: 
+$Target connection value: 
+	stgFTEC
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_ftec_FTEC
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+68: s_stgRTYP
+$Source connection value: 
+$Target connection value: 
+	stgRTYP
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_rtyp_RTYP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+69: s_stgTrialBalance2_LoadGLTransactions
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	ETLstgTrialBalanceInitialLoad
+		 SUBTYPE: Stored Procedure
+	stgTrialBalance
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_stgGENLDD2Clean
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+70: s_BankAccount
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	BankAccount_Update
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	BankAccount_NewInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_stgBANK
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBankAccount
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+71: s_BillingCode
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	BillingCodeInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	BillingCodeUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBillingCode
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgBPRO
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+72: s_BillingRate
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	BillingRateInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	BillingRateUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_stgBRTE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpBillingRate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+73: s_ControlSectionParcel
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	ControlSectionParcelInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	ControlSectionParcelUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpControlSectionParcel
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgCSPA
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+74: s_GroupCategory
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	GroupCategoryInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	GroupCategoryUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpGroupCategory
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgGCAT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+75: s_ReceivableType
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	ReceivableTypeInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	ReceivableTypeUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpReceivableType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgRETP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+76: s_RevenueSource
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	RevenueSourceInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	RevenueSourceUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpRevenueSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpstgRSRC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgRTYP
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_stgSREV
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+---------------------------------------------------------------------------------------------------------
+77: s_WorkOperation
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	WorkOperationInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	WorkOperationUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOperation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgWONT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	LKPstgWOCL
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+---------------------------------------------------------------------------------------------------------
+78: s_WorkOrder
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	WorkOrderInsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	WorkOrderUpdateChangedEndDate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	WorkOrderInsertChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOrder
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpOrganization
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	mptRetrieveCurrentBiennium.lkpFiscalPeriod
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: ConformedDimensionReader
+		 VARIABLE: 
+	SQ_stgWORD
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	WorkOrder_Update_inplace
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+---------------------------------------------------------------------------------------------------------
+79: s_stgOREH
+$Source connection value: 
+$Target connection value: 
+	stgOREH
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_oreh_OREH
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+80: s_stgDailyBal
+$Source connection value: 
+$Target connection value: 
+	stgDailyBal
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_dailybal_DailyBal
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+81: s_AllotmentBiennialFact
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	AllotmentBiennialFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_AllotmentMonthlyFact
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpObjectFY1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFiscalBiennium
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgALOT
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingFinancialReader
+		 VARIABLE: 
+	lkpFundFY1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpAgencyFY1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpAppropriationFY1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpSubProgramFY1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFundSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpObjectFY2
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpAgencyFY2
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpApproprationFY2
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFundFY2
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpSubProgramFY2
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpLastClosedMonth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+---------------------------------------------------------------------------------------------------------
+82: s_GeneralLedgerFact
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	GeneralLedgerFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFund
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAgency
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAccountType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpActivity
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAppropriation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBalanceSheetAccount
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBillingCode
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpOrganization
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpSec1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOperation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpRevenueSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpObject
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpPurchaseAuthority
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgGENLDD2Clean
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpDocumentType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpYearEndIndicator
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpSubProgram
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpEquipmentUsed
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpEquipmentWorkedOn
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFinanceCode
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFiscalBiennium
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFiscalMonth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBankAccount
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpObjectPayObject
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFundSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpControlSectionParcel
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOrderGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpGroupCategory
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpReceivableType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOrder
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpCustomer
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpJobClass
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpServiceRequest
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpVendor
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	mptComputeFTE.lkpstgFTEC
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpVendor_PCMS
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpPurchaseCardDetail
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpCardTransaction
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: PCMS
+		 VARIABLE: 
+	lkpstgPCARDMerchant_TransactionXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpVendor_NoVendorNumber
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpVendor_GLCustomer
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAgreementPayable
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAgreementReimbursable
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpEstimatedAccrualSec1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpEstimatedAccrualFiscalYear
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpReferenceSubObject
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+83: s_Customer
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	CustomerInsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	CustomerEndDateChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	CustomerInsertChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpCustomer
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgCUST
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+84: s_stgOTYP
+$Source connection value: 
+$Target connection value: 
+	stgOTYP
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_otyp_OTYP
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+85: s_Appropriation
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	NewInserts_Appropriation
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	UpdatesAppropriation
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgAPRF
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpAppropriation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+86: s_stgPRPL
+$Source connection value: 
+$Target connection value: 
+	stgPRPL
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_prpl_PRPL
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+87: s_stgPRBL
+$Source connection value: 
+$Target connection value: 
+	stgPRBL
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_prbl_PRBL
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+88: s_stgSORG
+$Source connection value: 
+$Target connection value: 
+	stgSORG
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_sorg_SORG
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+89: s_OpenReceivableFact
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	OpenReceivableFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpFiscalBiennium
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFiscalMonth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpActivity
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAgency
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAppropriation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBillingCode
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBillingRate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpBalanceSheetAccount
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpControlSectionParcel
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFund
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpSubSubObject
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpRevenueSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpReceivableType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpSec1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpSubProgram
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpUnitofMeasure
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOperation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWorkOrderGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpEquipmentWorkedOn
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgOREL
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpstgOREH
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpCustomer
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpOrganization
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpWSDOTDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: ConformedDimensionReader
+		 VARIABLE: 
+	lkpBalanceSheetAccount1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpVendor_GLCustomer
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpReimbursableAgreement
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+90: s_stgSPDT
+$Source connection value: 
+$Target connection value: 
+	stgSPDT
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_spdt_SPDT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+91: s_stgALC2
+$Source connection value: 
+$Target connection value: 
+	stgALC2
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_alc2_ALC2
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+92: s_stgALOT
+$Source connection value: 
+$Target connection value: 
+	stgALOT
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_alot_ALOT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+93: s_AllotmentMonthlyFact
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	usp_DeleteBienniumFromAllotmentMonthly
+		 SUBTYPE: Stored Procedure
+	AllotmentMonthlyFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpFund
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpAppropriation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpSubProgram
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpFiscalBiennium
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpFiscalMonth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpAgency
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_ETLAllotmentExpenditureSummary
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpObject
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_etAllotmentsCombined
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpFundSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: FinancialDataMart
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+94: s_Vendor
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	VendorInsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	VendorEndDateChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	VendorInsertChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpstgVendorSkip
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpVendor
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgVSEC
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+95: s_stgBACC
+$Source connection value: 
+$Target connection value: 
+	stgBACC
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_BACC_BACC
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+96: s_FundSource
+$Source connection value: 
+$Target connection value: $DBConnectionTarget
+	FundSource_InsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	FundSource_Update
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFundSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgFDSC
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+97: s_stgPPATNormalized
+$Source connection value: 
+$Target connection value: 
+	stgPPATNormalized
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_stgPPAT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+98: s_FinancialDataMartDailyBalanceReport
+$Source connection value: Relational:zFinancialReader
+$Target connection value: $DBConnectionTarget
+	SQ_stgDailyBal
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpGeneralLedgerFact
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	FDMDailyBalanceReport_Update
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	FDMDailyBalanceReport_Insert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpFDMDailyBalanceReport
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+---------------------------------------------------------------------------------------------------------
+99: s_GeneralLedgerFactUpdateWarrant
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	GLUpdateCashReceipts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	GLUpdateDeferredRevenue
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	GLUpdateWarrant
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LKP_OffsettingCashReciept
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LKP_OffsettingDeferredRevenue
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_GeneralLedgerFact
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LKP_ADWarrentNumber
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkp_PayeeName
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+100: s_AgreementSummaryFact
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	AgreementSummaryFactNewRecord
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_stgPRBL
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpAgreement
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpstgSPDT
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpAgency
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpOrganization
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	mptRetrieveCurrentDateFields.lkpFiscalPeriod
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: ConformedDimensionReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+101: s_Agreement
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	usp_UpdateMasterAgreementId
+		 SUBTYPE: Stored Procedure
+	PayableAgreementNewInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	PayableAgreementInsertChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	PayableAgreementUpdateEnddateChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGenReimbursable
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGenPayable
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpCustomer
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpVendor
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpstgSPDT
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgAGPR
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_stgPRBL
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpAgreement
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpMasterAgreement
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	mptRetrieveCurrentDateFields.lkpFiscalPeriod
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: ConformedDimensionReader
+		 VARIABLE: 
+	ReimbursableAgreementUpdateEnddateChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	ReimbursableAgreementInsertChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	ReimbursableAgreementNewInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpstgAGPRMaster
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptPayableAgreement.lkpAgency
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	mptPayableAgreement.lkpstgSPDT
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptPayableAgreement.lkpOrganization
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	mptPayableAgreement.lkpstgAGPR
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+---------------------------------------------------------------------------------------------------------
+102: s_stgWOCL
+$Source connection value: 
+$Target connection value: 
+	stgWOCL
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	AMGDSQ_WOCL_WOCL
+		 SUBTYPE: PowerExchange Reader for ADABAS
+		 CONNECTIONNAME: 
+		 VARIABLE: $AppConnectionSource
+---------------------------------------------------------------------------------------------------------
+103: s_stgORGN
+$Source connection value: 
+$Target connection value: 
+	stgORGN
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_orgntrains_NEW_RECORD__
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+104: s_stgPCARD_NonPCMS
+$Source connection value: 
+$Target connection value: 
+	stgPCARD
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_pcard_PCARD_RECORD
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+105: s_VendorPCARD
+$Source connection value: Relational:zFinancialReader
+$Target connection value: $DBConnectionTarget
+	VendorInsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpVendor
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_stgPCARD
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+106: s_stgPCARDMerchant_TransactionXref
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	PCARDMerchant_TransactionXref
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_stgPCARD
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpstgPCARDMerchant_TransactionXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+---------------------------------------------------------------------------------------------------------
+107: s_stgVSEC
+$Source connection value: 
+$Target connection value: 
+	stgVSEC
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	AMGDSQ_vendor_VENDOR_SW
+		 SUBTYPE: PowerExchange Reader for ADABAS
+		 CONNECTIONNAME: 
+		 VARIABLE: $AppConnectionSource
+---------------------------------------------------------------------------------------------------------
+108: s_AllocationMonthlyFact
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	usp_DeleteBienniumFromAllocationMonthly
+		 SUBTYPE: Stored Procedure
+	AllocationMonthlyFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpActivity
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpAppropriation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpSubProgram
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_aloc_ALOC
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpFiscalBiennium
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFiscalMonth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpOrganizationa
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_ETLAllocationExpenditureSummary
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpFund
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpFundSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpstgAPPR
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpAgency
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+109: s_RevenueMonthlySummary
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	usp_DeleteBienniumFromRevenueSummary
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: $Target
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	RevenueMonthlySummaryFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_SummaryRevenueFactLoad1
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+110: s_stgOBJT
+$Source connection value: 
+$Target connection value: 
+	OBJT
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_objt_OBJT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+111: s_stgOCAT
+$Source connection value: 
+$Target connection value: 
+	OCAT
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_ocat_OCAT
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+112: s_Oranization_InsertSpreadsheet
+$Source connection value: Relational:FDM_ORGN_ODBC
+$Target connection value: Relational:FinancialDataMart
+	OrganizationInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: FinancialDataMart
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_ORGN
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: FDM_ORGN_ODBC
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+113: s_stgGENLDD3
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	stgGENLDD3
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	SQ_genldd3_GenLdD3
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+---------------------------------------------------------------------------------------------------------
+114: s_stgGENLDD2CleanFromGENLDD3
+$Source connection value: $DBConnectionSource
+$Target connection value: $DBConnectionTarget
+	stgGENLDD2Clean
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionTarget
+	lkpGLVendor
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	SQ_stgGENLDD3
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $DBConnectionSource
+	lkpstgOREH
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+---------------------------------------------------------------------------------------------------------
+There are 114 sessions.
+---------------------------------------------------------------------------------------------------------
+Distinct $Source Connection Names:
+	Relational:FDM_ORGN_ODBC
+	Relational:zFinancialReader
+	Relational:zStagingFinancialReader
+---------------------------------------------------------------------------------------------------------
+Distinct $Target Connection Names:
+	Relational:FinancialDataMart
+---------------------------------------------------------------------------------------------------------
+Distinct Connection Names:
+	CAFMProd
+	ConformedDimensionReader
+	ConformedDimensions
+	FDM_ORGN_ODBC
+	FinancialDataMart
+	HumanResourcesDataMart
+	PCMS
+	PWX_NRDB_CCIS
+	zFacilitiesReader
+	zFinancialReader
+	zStagingFinancialReader
+---------------------------------------------------------------------------------------------------------

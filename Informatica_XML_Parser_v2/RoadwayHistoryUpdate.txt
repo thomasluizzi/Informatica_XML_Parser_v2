@@ -1,0 +1,137 @@
+1: s_UpdateSRLocationReferenceGeometricID
+$Source connection value: 
+$Target connection value: Relational:RoadwayDataMart
+	lkpStateRoute
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpSRLocationReference
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpOriginalAcc_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	lkpOriginalTurn_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	lkpOriginalAcc_Ln_Lgth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	lkpOriginalTurn_Ln_Lgth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	lkpRoadwayGeometric
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpRoadwayGeometricID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	History2004
+		 SUBTYPE: Relational Reader
+	SQ_History2004
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: RoadwayDataMart
+		 VARIABLE: 
+	lkpRoadwayHistory
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMart
+		 VARIABLE: 
+	SRLocationReference20070915
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMart
+		 VARIABLE: 
+2: s_RoadwayLinearHistory
+$Source connection value: Relational:RoadwayDataMart
+$Target connection value: Relational:RoadwayDataMart
+	RoadwayLinear2004
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	History2004
+		 SUBTYPE: Relational Reader
+	lkpRecordType2SpeedDecr
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: DS02TARIS
+		 VARIABLE: 
+	lkpRecordType2SpeedIncr
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: DS02TARIS
+		 VARIABLE: 
+	SQ_History2004
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: RoadwayDataMart
+		 VARIABLE: 
+3: s_RoadwayGeometricUpdate
+$Source connection value: Relational:RoadwayDataMart
+$Target connection value: Relational:RoadwayDataMart
+	RoadwayGeometric
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMart
+		 VARIABLE: 
+	lkpRoadwayGeometric
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	mptCreateRoadwayGeometricsUpdate.lkpRoadwayGeometric
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	mptCreateRoadwayGeometricsUpdate.lkpOriginalTurn_Ln_Lgth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: DS02TARIS
+		 VARIABLE: 
+	mptCreateRoadwayGeometricsUpdate.lkpOriginalAcc_Ln_Lgth
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	mptCreateRoadwayGeometricsUpdate.lkpOriginalTurn_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	mptCreateRoadwayGeometricsUpdate.lkpOriginalAcc_Ln_Width
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: 
+	History2004
+		 SUBTYPE: Relational Reader
+	SQ_History2004
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: RoadwayDataMart
+		 VARIABLE: 
+	mptCreateRoadwayGeometricsUpdate.lkpRoadwayHistory
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMart
+		 VARIABLE: 
+4: s_UpdateRdwyLinearHistory
+$Source connection value: 
+$Target connection value: 
+	stgEndPointData
+		 SUBTYPE: Relational Reader
+	SQ_stgEndPointData
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: DS02TARIS
+		 VARIABLE: 
+	RoadwayLinear2004
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: RoadwayDataMart
+		 VARIABLE: 
+	lkpHistory2004
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMart
+		 VARIABLE: 
+There are 4 sessions.
+Distinct $Source Connection Names:
+	{'Relational:RoadwayDataMart'}
+Distinct $Target Connection Names:
+	{'Relational:RoadwayDataMart'}
+Distinct Connection Names:
+	{'RoadwayDataMart', 'DS02TARIS'}
+Distinct Variable Names:
+	{'$Target'}

@@ -1,0 +1,170 @@
+1: s_TrafficCount
+$Source connection value: 
+$Target connection value: Relational:TDOTrafficDataMart
+	TrafficCount
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpStateRouteLocation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+	lkpTrafficCountLeg
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTDOTrafficAADTReader
+		 VARIABLE: 
+	lkpTrafficCompassDirection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTDOTrafficAADTReader
+		 VARIABLE: 
+	SQ_Record_Type_8
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+2: s_ADCYearEndTrafficCount
+$Source connection value: Relational:TARISReader
+$Target connection value: Relational:zTDOTrafficAADTWriter
+	ADCYearEndTrafficCount
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_ADC_Yr_End_Trfc_Cnt
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpTrafficCompassDirection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTDOTrafficAADTReader
+		 VARIABLE: 
+	lkpTrafficCountLeg
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTDOTrafficAADTReader
+		 VARIABLE: 
+	SQ_ADC_Yr_End_Trfc_Cnt_Trk_Pct
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpStateRouteLocation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+3: s_GrowthFactor
+$Source connection value: 
+$Target connection value: 
+	GrowthFactor
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: zTDOTrafficAADTWriter
+		 VARIABLE: 
+	SQ_stgGrowthFactor
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkp_Current_ADC_Site
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkp_Current_Seasnl_and_Growth_Fctr_Grp
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+4: s_TrafficCompassDirection
+$Source connection value: Relational:TARISReader
+$Target connection value: Relational:zTDOTrafficAADTWriter
+	sp_AlterTrafficDMSRLocationView
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:RoadwayDataMartReader
+	TrafficCompassDirection
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	TrafficCompassDirection1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_Trfc_Cmps_Dirn
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpTrafficCompassDirection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTDOTrafficAADTReader
+		 VARIABLE: 
+5: s_TrafficCountLeg
+$Source connection value: Relational:TARISReader
+$Target connection value: Relational:zTDOTrafficAADTWriter
+	TrafficCountLegInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	TrafficCountLegUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_Trfc_Cnt_Leg
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpTrafficCountLeg
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTDOTrafficAADTReader
+		 VARIABLE: 
+6: s_YearEndTrafficCount
+$Source connection value: Relational:TARISReader
+$Target connection value: Relational:zTDOTrafficAADTWriter
+	YearEndTrafficCount
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_Yr_End_Trfc_Cnt
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpTrafficCountLeg
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTDOTrafficAADTReader
+		 VARIABLE: 
+	lkpTrafficCompassDirection
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zTDOTrafficAADTReader
+		 VARIABLE: 
+	lkpStateRouteLocation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: RoadwayDataMartReader
+		 VARIABLE: 
+7: s_AxleAndSeasonalFactors
+$Source connection value: 
+$Target connection value: Relational:zTDOTrafficAADTWriter
+	sp_updTrafficDMLoadInd
+		 SUBTYPE: Stored Procedure
+	AxleSeasonalFactor
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_stgAxleSeasonalFactor
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkp_Current_Seasnl_and_Growth_fctr_Grp
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkp_Current_ADC_Site
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkp_Current_Axle_Fctr_Grp
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+There are 7 sessions.
+Distinct $Source Connection Names:
+	Relational:TARISReader
+Distinct $Target Connection Names:
+	Relational:TDOTrafficDataMart
+	Relational:zTDOTrafficAADTWriter
+Distinct Connection Names:
+	Relational
+	RoadwayDataMartReader
+	TARISReader
+	zTDOTrafficAADTReader
+	zTDOTrafficAADTWriter

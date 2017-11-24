@@ -1,0 +1,2010 @@
+1: s_Program
+$Source connection value: StagingCPMS
+$Target connection value: CPMSDataMartProd
+	Program
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: CPMSDataMartProd
+		 VARIABLE: 
+	stgPITable
+		 SUBTYPE: Relational Reader
+	SQ_stgPITable
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingCPMS
+		 VARIABLE: 
+	lkpActivity
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: FinancialDataMartProd
+		 VARIABLE: 
+	lkpstgCategory
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgProgram
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgProgramItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	ControlRecord_A_B_Identifier1.lkpstgCNTL_REC_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	ControlRecord_A_B_Identifier.lkpstgCNTL_REC_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkp_SubProgram
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: FinancialDataMart
+		 VARIABLE: 
+2: s_ProgramItem
+$Source connection value: StagingCPMS
+$Target connection value: Relational:CPMSDataMart
+	ProgramItem_Update
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: CPMSDataMart
+		 VARIABLE: 
+	ProgramItem_Insert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: CPMSDataMart
+		 VARIABLE: 
+	stgPITable
+		 SUBTYPE: Relational Reader
+	SQ_stgPITable
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingCPMS
+		 VARIABLE: 
+	lkpProgramItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgSEGMENT_CODE_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingCPMSODBC
+		 VARIABLE: 
+	lkpstgCNTL_REC_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgIMPROVEMENT_TYPE_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgProgramItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpAdDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpOpenToTrfcDate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpRevenuePackageDescr
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingCPMS
+		 VARIABLE: 
+	lkpPinCrosswalk
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingCPMS
+		 VARIABLE: 
+	lkpstgFunctional_Class_Xref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: StagingCPMS
+		 VARIABLE: 
+	lkpTEISBin
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: CPMSDataMart
+		 VARIABLE: 
+3: s_Comments
+$Source connection value: StagingCPMS
+$Target connection value: CPMSDataMartProd
+	WorkItem_WINComments
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: CPMSDataMartProd
+		 VARIABLE: 
+	ProgramItem_PINComments
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: CPMSDataMartProd
+		 VARIABLE: 
+	ProgramItem_PINBookDescription
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: CPMSDataMartProd
+		 VARIABLE: 
+	stgApplication_Text_Database
+		 SUBTYPE: Relational Reader
+	lkpWorkItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_stgApplication_Text_Database
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingCPMS
+		 VARIABLE: 
+	stgstgProgramItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgWorkItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgProgramItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	mptLookupVolume2.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume1.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramItemComments
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpProgramItemComments1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+4: CheckForNoStagingRecords
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zStagingCPMSWriter
+	spCheckForNoStagingRecords
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:zCPMSReader
+	stgVolume1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgVolume
+		 SUBTYPE: Relational Reader
+	SQ_stgVolume
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+5: s_PIN_and_PIN_Phase_PCT_Complete
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramPhase1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramItem1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramPhase
+		 SUBTYPE: Relational Reader
+	ProgramItem
+		 SUBTYPE: Relational Reader
+	lkpstgProgramItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPI_Phase_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_ProgramItem
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramManagementAggBien
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramManagementAggBien2
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_ProgramPhase
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume1.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+6: s_CapitalProgramVolume
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	CapitalProgramVolume1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	CapitalProgramVolume
+		 SUBTYPE: Relational Reader
+	lkpCntlRec
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	SQ_CapitalProgramVolume
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+7: s_ProgramManagementAggBien___Delete
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramManagementAggBien
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramManagementAggBien
+		 SUBTYPE: Relational Reader
+	lkpBienDates
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_ProgramManagementAggBien
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpWorkItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpPhase
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFinanceCode
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgFP_FC_BIEN_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+8: s_ProgramManagementAggBien
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	spProgramManagementAggBien_Create_Index
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: $Source
+	spProgramManagementAggBien_Drop_Index
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: $Source
+	ProgramManagementAggBien_Updates
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramManagementAggBien_Inserts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramManagementFact
+		 SUBTYPE: Relational Reader
+	lkpDates
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpBienniumDates
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_ProgramManagementFact
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramManagementAggBien
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+9: s_ProgramItemOriginalFactDelete
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramItemOriginalFact1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramItemOriginalFact
+		 SUBTYPE: Relational Reader
+	lkpPhase
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpBienDates
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFinanceCode
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_ProgramItemOriginalFact
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPIOriginal
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	lkpstgfp_fc_bien_table
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+10: s_ProgramItemOriginalFact
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramItemOriginalFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramItemOriginalFact1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgPIOriginal
+		 SUBTYPE: Relational Reader
+	lkpBienniumDates1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpPhaseID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgProgramItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgPIOriginal
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramItemOriginalFact
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	mptLookupVolume1.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFinanceCodeID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpCounties
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpLegDist
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgPI_Phase_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgPICounites
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPILegDist
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpCongressionalDistricts
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgPICongressDist
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramManagementAggBienSqlOR
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	stgFP_FC_BIEN_TABLE
+		 SUBTYPE: Relational Reader
+	lkpstgCOA_FINANCE_CODE_TITLE_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFundSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_stgFP_FC_BIEN_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgCNTL_REC_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+11: PINMilestone
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramItem
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramItemMilestone
+		 SUBTYPE: Relational Reader
+	lkpMilestoneNum
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_ProgramItemMilestone
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpWorkItemInformation
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+12: WINMilestone
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	WorkItemMilestone
+		 SUBTYPE: Relational Reader
+	SQ_WorkItemMilestoneSqlOR
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpMilestoneNum
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	WorkItem
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+13: s_ProgramManagementQuarterFactDelete
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramManagementQuarterFact1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramManagementQuarterFact
+		 SUBTYPE: Relational Reader
+	lkpPhase
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpWorkItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFinanceCode
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_ProgramManagementQuarterFactSqlOR
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpBienQuarter
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgFP_FC_Bien_Quarter_GroupSqlOR
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+14: s_ProgramManagementQuarterFact
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramManagementQuarterFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramManagementQuarterFact1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramManagementFact
+		 SUBTYPE: Relational Reader
+	lkpDates
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_ProgramManagementFact
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpBienQuarterID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramManagementQuarterFact
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+15: s_stgProgramItem_XrefNew
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	stgProgramItem_Xref
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgFP_TABLE
+		 SUBTYPE: Relational Reader
+	lkpstgProgramItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgFP_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+16: s_stgPIN_WIN_XrefNew
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	stgPIN_WIN_Xref
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgFP_TABLE
+		 SUBTYPE: Relational Reader
+	lkpstgPIN_WIN_Xref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgFP_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+17: s_stgPinWinPhaseXrefNEW
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	sp_WorkOrderLookupDropView
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:zCPMSReader
+	stgPinWinPhaseXref
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgFP_TABLE
+		 SUBTYPE: Relational Reader
+	lkpstgPinWinPhaseXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgFP_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+18: s_stgWorkItem_XrefNew
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	stgWorkItem_XREF
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgFP_TABLE
+		 SUBTYPE: Relational Reader
+	lkpstgWorkItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgFP_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+19: s_stgWI_Phase_XrefNew
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	stgWI_Phase_XREF
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgFP_TABLE
+		 SUBTYPE: Relational Reader
+	lkpstgWI_Phase_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgFP_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+20: s_stgPI_Phase_XrefNew
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	stgPI_Phase_XREF_NEW_INSERTS
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgPI_Phase_XREF
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgFP_TABLE
+		 SUBTYPE: Relational Reader
+	lkpstgPI_Phase_Table
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPI_Phase_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgFP_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	ControlRecord_A_B_Identifier.lkpstgCNTL_REC_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	ControlRecord_A_B_Identifier1.lkpstgCNTL_REC_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+21: s_stgPinWinPhaseXrefDeleteNew
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	stgPinWinPhaseXref
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgPinWinPhaseXref1
+		 SUBTYPE: Relational Reader
+	SQ_stgPinWinPhaseXref
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	LKPTRANS
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	ProgramItemWorkItemPhase
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+22: s_stgWI_Phase_XrefDeleteNew
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	stgWI_Phase_XREF1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgWI_Phase_XREF
+		 SUBTYPE: Relational Reader
+	lkpstgFP_Table
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	SQ_stgWI_Phase_XREF
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	WorkItemPhase
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+23: s_stgPIN_WIN_XrefDeleteNew
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	sp_WorkOrderLookupCreateView
+		 SUBTYPE: Stored Procedure
+	stgPIN_WIN_Xref
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgPIN_WIN_Xref1
+		 SUBTYPE: Relational Reader
+	SQ_stgPIN_WIN_Xref
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgFP_Table
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	WorkItemRoute
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+24: s_stgPI_Phase_XrefDeleteNew
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	stgPI_Phase_XREF1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgPI_Phase_XREF
+		 SUBTYPE: Relational Reader
+	lkpstgFP_Table
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	SQ_stgPI_Phase_XREF
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	ApprovalCodes
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramPhase
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramStatus
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+25: s_stgProgramItem_XrefDeleteNew
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	stgProgramItem_XREF1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgProgramItem_XREF
+		 SUBTYPE: Relational Reader
+	lkpstgFP_Table
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	SQ_stgProgramItem_XREF
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	Program
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramItem
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+26: s_VerifyData
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zStagingCPMSWriter
+	usp_Verify_DataMart
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:zCPMSReader
+	spRptPINPhaseActualDollar
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:zCPMSReader
+	stgCNTL_REC_TABLE1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgCNTL_REC_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_stgCNTL_REC_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+27: s_stgWorkItem_XrefDeleteNew
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	stgWorkItem_XREF1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgWorkItem_XREF
+		 SUBTYPE: Relational Reader
+	lkpstgFP_Table
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	SQ_stgWorkItem_XREF
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	WorkItem
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+28: s_rptPINPhaseCurrentDollar
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zStagingCPMSWriter
+	spRptPINPhaseCurrentDollar
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:zCPMSReader
+	spRptPINPhaseFinanceCodeCurrentDollar
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:zCPMSReader
+	stgVolume1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgVolume
+		 SUBTYPE: Relational Reader
+	SQ_stgVolume
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+29: s_LoadCPMSDataForFATSToWSDOTDataLibrary
+$Source connection value: Relational:CPMSInterfaceReader
+$Target connection value: Relational:WSDOTDataLibrarySourceData
+	FatsPinWinPhase
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: WSDOTDataLibrarySourceData
+		 VARIABLE: 
+	FatsPinWinPhaseFinanceCode
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: WSDOTDataLibrarySourceData
+		 VARIABLE: 
+	vwPinWinPhase
+		 SUBTYPE: Relational Reader
+	vwPinWinPhaseFinanceCode
+		 SUBTYPE: Relational Reader
+	SQ_vwPinWinPhase
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMSInterfaceReader
+		 VARIABLE: 
+	SQ_vwPinWinPhaseFinanceCode
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CPMSInterfaceReader
+		 VARIABLE: 
+30: s_ApprovalCodes
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ApprovalCodes_Insert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ApprovalCodes_Update
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpApprovalCodes
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_stgPI_Phase_XREF
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgBIEN_APPRVL_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	lkpApprovalCodeGroup
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	stgPI_Phase_XREF1
+		 SUBTYPE: Relational Reader
+31: s_Estimate
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	Estimate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgFP_FC_EST_TABLE
+		 SUBTYPE: Relational Reader
+	lkpEstimate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgFP_FC_EST_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+32: s_EstimateStage
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	EstimateStage_Inserts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	EstimateStage_Updates
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgSTAGE_OF_ESTIMATE
+		 SUBTYPE: Relational Reader
+	lkpEstimateStage
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgSTAGE_OF_ESTIMATE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+33: s_LegislativeDistricts
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	LegislativeDistricts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgPILegDist
+		 SUBTYPE: Relational Reader
+	lkpLegislativeDistricts
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgPILegDist
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+34: s_SpecialFeatures
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	SpecialFeatures
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgWISpecialFeatures
+		 SUBTYPE: Relational Reader
+	lkpSpecialFeatures
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgCPMSSpecialFeatures
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_stgWISpecialFeatures
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+35: s_FinanceCode
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	FinanceCode
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	FinanceCode1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgCOA_FINANCE_CODE_TITLE_TABLE
+		 SUBTYPE: Relational Reader
+	lkpFinanceCode
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgCOA_FINANCE_CODE_TITLE_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgCntlRec
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpTEISFundType
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+36: s_ProgramItemWorkItemPhase
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramItemWorkItemPhase_Update
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramItemWorkItemPhase_Inserts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgFP_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_stgFP_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPinWinPhaseXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpProgramItemWorkItemPhase
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgPITable
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPI_Phase_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	ControlRecord_A_B_Identifier.lkpstgCNTL_REC_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+37: s_ProgramStatus
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramStatus_Inserts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramStatus
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpstgBIEN_PGM_STATUS_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	SQ_stgPI_Phase_XREF
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramStatus
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	stgPI_Phase_XREF
+		 SUBTYPE: Relational Reader
+38: s_WorkItemPhase
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	WorkItemPhase_Updates
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	WorkItemPhase_Inserts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgWI_Phase_Table
+		 SUBTYPE: Relational Reader
+	lkpEbaseDates
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: EbaseProd
+		 VARIABLE: 
+	lkpstgWI_Phase_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpWorkItemPhase
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgWI_Phase_Table
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpWorkOrder
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	lkpstgCNTL_REC_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	WOAuthGroup_CommonAccounting
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zFinancialReader
+		 VARIABLE: 
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+39: s_ProgamPhase
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramPhase_Updates
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramPhase_Inserts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgPI_Phase_Table
+		 SUBTYPE: Relational Reader
+	SQ_stgPI_Phase_Table
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPI_Phase_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpProgramPhase
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+40: Milestone
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	Milestone_NewInserts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	Milestone_UpdateUpdate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgMilestoneStdTable
+		 SUBTYPE: Relational Reader
+	SQ_stgMilestoneStdTable
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpMilestone
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	Milestone_UpdateInsert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+41: s_CongressionalDistricts
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	CongressionalDistricts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgPICongressDist
+		 SUBTYPE: Relational Reader
+	lkpCongressionalDistricts
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgPICongressDist
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+42: s_LegislativeProjects
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	LegislativeProject_Insert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	LegislativeProject_Updates
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgLegislative_Project_Table
+		 SUBTYPE: Relational Reader
+	LKPTRANS
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgLegislative_Project_Table
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+43: s_Counties
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	Counties_Inserts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	Counties_Updates
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgPICounties
+		 SUBTYPE: Relational Reader
+	lkpCounties
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgPICounties
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpWSDOT_Data_Library_County
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOTDataLibraryReader
+		 VARIABLE: 
+44: s_FundStage
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	FundStage_Inserts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	FundStage_Updates
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgSTAGE_OF_FUND_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_stgSTAGE_OF_FUND_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFundStage
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+45: s_Deficiencies
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	Deficiencies_Insert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_stgPI_DEFICIENCY_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	stgPI_DEFICIENCY_TABLE
+		 SUBTYPE: Relational Reader
+	lkpDeficiencies
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+46: s_WorkItem
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	WorkItem_Insert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	WorkItem_Updates
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgWITable
+		 SUBTYPE: Relational Reader
+	lkpstgManagement_Area_Table
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_stgWitable
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpWorkItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgWorkItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+47: s_WorkItemRoute
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	WorkItemRoute_Insert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	WorkItemRoute_Update
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgProgramItemWorkItem
+		 SUBTYPE: Relational Reader
+	SQ_stgProgramItemWorkItem
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPIN_WIN_Xref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpWorkItemRoute
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+48: s_ProgramManagementFact
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramManagementFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramManagementFact_Updates
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpCounties
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	stgFP_FC_BIEN_TABLE
+		 SUBTYPE: Relational Reader
+	lkpLegislativeDistricts
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgFP_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFinanceCode
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkPstgWI_Phase_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpEstimateStage
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpFundStage
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgFP_FC_BIEN_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPI_Phase_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpDates
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpPhase
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgProgramItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgPinWinPhaseXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgPICounites
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPILegDist
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgWorkItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpCongressionalDistricts
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgPICongressDist
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpLegProjID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpLegProjNumber
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgCNTL_REC_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPIN_WIN_Xref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpProgramManagementFact
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpFundSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgCOA_FINANCE_CODE_TITLE_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+49: s_ProgramManagementEstimateFact_DELETE
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramManagementEstimateFact1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramManagementEstimateFact
+		 SUBTYPE: Relational Reader
+	lkpProgramManagementEstimateFact
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_ProgramManagementEstimateFact
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+50: s_ProgramManagementEstimateFact
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramManagementEstimateFact_Inserts
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramManagementEstimateFact_Updates
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgFP_FC_EST_TABLE
+		 SUBTYPE: Relational Reader
+	lkpCounties
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpLegDist
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgWorkItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgPinWinPhaseXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgProgramItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpPhase
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgPI_Phase_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgFP_FC_EST_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkPstgWI_Phase_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpFinanceCode
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgFP_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFundStage
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpEstimateStage
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgCOA_FINANCE_CODE_TITLE_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFundSource
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpProgramManagementEstimateFact
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	stgPICounties
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPILegDist
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpEstimate
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+51: s_ProgramManagementDeficiencyFact
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramManagementDeficiencyFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgPI_DEFICIENCY_TABLE
+		 SUBTYPE: Relational Reader
+	SQ_stgPI_DEFICIENCY_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramManagementDeficiencyFact
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgProgramItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpDeficiencies
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	mptLookupVolume1.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+52: s_ProgramManagementFact___Delete
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramManagementFact1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramManagementFact
+		 SUBTYPE: Relational Reader
+	lkpstgFP_FC_BIEN_TABLE
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	lkpDates
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFinanceCode
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpPhase
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpWorkItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_ProgramManagementFact
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+53: s_ProgramManagementSpecialFeaturesFact
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramMgmtSpecialFeaturesFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgWISpecialFeatures
+		 SUBTYPE: Relational Reader
+	lkpSpecialFeatures1
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpProgramManagementSpecialFeaturesFact
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpWI_Phase_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpWorkItem_XREF
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgWISpecialFeatures
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+54: s_ProgramManagementSpecialFeaturesFact_DELETE
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramMgmtSpecialFeaturesFact1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramMgmtSpecialFeaturesFact
+		 SUBTYPE: Relational Reader
+	lkpProgramMgmtSpecialFeaturesFact
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_ProgramMgmtSpecialFeaturesFact
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+55: PinWinPhaseList
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	PinWinPhaseList_Insert
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	PinWinPhaseList_Update
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgFP_TABLE
+		 SUBTYPE: Relational Reader
+	lkpCounties
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpLegDist
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgPICounites
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPILegDist
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpCongressionalDistricts
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgPICongressDist
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpLegProjID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpstgPinWinPhaseXref
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	SQ_stgFP_TABLE
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramItemID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpWorkItemID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpProgramPhaseID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpWorkPhaseID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpPhaseID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpProgramItemWorkItemID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpProgramManagementFact
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpPinWinPhaseList
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpFundStage
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpEstimateStage
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+56: PinWinPhaseListDelete
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	PinWinPhaseList
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	PinWinPhaseList
+		 SUBTYPE: Relational Reader
+	lkpPhase
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpWorkItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_PinWinPhaseList
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgFP_Table
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+57: s_ProgramManagementDeficiencyFact_Delete
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramManagementDeficiencyFac1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramManagementDeficiencyFac
+		 SUBTYPE: Relational Reader
+	SQ_ProgramManagementDeficiencyFac
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPIDeficiency
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	lkpDeficiencyInfo
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+58: WorkItemMilestone
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	WorkItemMilestoneFact
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	WorkItemMilestoneFact1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgMilestone_Table
+		 SUBTYPE: Relational Reader
+	SQ_stgMilestone_Table
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	lkpWorkItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpMilestone
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpWorkItemMilestone
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+59: WorkItemMilestoneDelete
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	WorkItemMilestone1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	WorkItemMilestone
+		 SUBTYPE: Relational Reader
+	SQ_WorkItemMilestone
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgWIMilestone
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	lkpWorkItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpMilestone
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+60: ProgramItemMilestone
+$Source connection value: Relational:zStagingCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramItemMilestone
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramItemMilestone1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	stgPI_Milestone_Table
+		 SUBTYPE: Relational Reader
+	SQ_stgPI_Milestone_Table
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpProgramItemID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpWorkItemID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpProgramItemMilestone
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	lkpMilestoneID
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zCPMSReader
+		 VARIABLE: 
+	mptLookupVolume.lkpVolume
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+61: ProgramItemMilestoneDelete
+$Source connection value: Relational:zCPMSReader
+$Target connection value: Relational:zCPMSWriter
+	ProgramItemMilestone1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	ProgramItemMilestone
+		 SUBTYPE: Relational Reader
+	SQ_ProgramItemMilestone
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpstgPIMilestoneTable
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCPMSReader
+		 VARIABLE: 
+	lkpProgramItem
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpMilestone
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+There are 61 sessions.
+Distinct $Source Connection Names:
+	{'Relational:zStagingCPMSReader', 'Relational:zCPMSReader', 'Relational:CPMSInterfaceReader'}
+Distinct $Target Connection Names:
+	{'Relational:zCPMSWriter', 'Relational:CPMSDataMart', 'Relational:WSDOTDataLibrarySourceData', 'Relational:zStagingCPMSWriter'}
+Distinct Connection Names:
+	{'zStagingCPMSReader', 'WSDOTDataLibrarySourceData', 'zFinancialReader', 'CPMSInterfaceReader', 'FinancialDataMartProd', 'StagingCPMSODBC', 'EbaseProd', 'zCPMSReader', 'StagingCPMS', 'Relational', 'CPMSDataMartProd', 'WSDOTDataLibraryReader', 'FinancialDataMart', 'CPMSDataMart'}
+Distinct Variable Names:
+	{'$Source', '$Target'}

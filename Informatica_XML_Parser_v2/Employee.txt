@@ -1,0 +1,130 @@
+1: s_stgEmployeeWorkSchedule
+$Source connection value: Relational:LaborDataMartMVSProdBatch
+$Target connection value: Relational:HumanResourcesDataMart
+	stgEmployeeWorkSchedule
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: HumanResourcesDataMart
+		 VARIABLE: 
+	SQ_empwkschdl_KAP013
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: LaborDataMartMVSProdBatch
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+2: s_Employee
+$Source connection value: Relational:LaborDataMartMVSProdBatch
+$Target connection value: Relational:HumanResourcesDataMart
+	InsertNewEmployee
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: HumanResourcesDataMart
+		 VARIABLE: 
+	SQ_emplmast_ADA_RECORD
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: LaborDataMartMVSProdBatch
+		 VARIABLE: 
+	LKPmaxEmployeeId
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: HumanResourcesDataMart
+		 VARIABLE: 
+	LKPWorkSchedule
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: LaborDataMart
+		 VARIABLE: 
+	InsertEmployeeNewRow
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: HumanResourcesDataMart
+		 VARIABLE: 
+	UpdateCurrentEmployeeRow
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: HumanResourcesDataMart
+		 VARIABLE: 
+	LKPMeritSystem1WorkSchedule
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	LKPJobClass
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	LKPPosition
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	LKPEmployeeExists
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpCountyCodes
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: WSDOTDataLibrary
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+3: s_JobClass
+$Source connection value: Relational:LaborDataMartMVSProdBatch
+$Target connection value: Relational:HumanResourcesDataMart
+	JobClassInsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: HumanResourcesDataMart
+		 VARIABLE: 
+	JobClassUpdateEndDate
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: HumanResourcesDataMart
+		 VARIABLE: 
+	JobClassInsertChanged
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: HumanResourcesDataMart
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	lkpJobClass
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_jobclass_JobClassMasterFile
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: LaborDataMartMVSProdBatch
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+4: s_Position
+$Source connection value: Relational:LaborDataMartMVSProdBatch
+$Target connection value: Relational:HumanResourcesDataMart
+	PositionInsertNew
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: HumanResourcesDataMart
+		 VARIABLE: 
+	PositionUpdateExisting
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: HumanResourcesDataMart
+		 VARIABLE: 
+	PositionInsertUpdatedRecord
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: HumanResourcesDataMart
+		 VARIABLE: 
+	LkupforSGen
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_position_DOTPositionMasterFile
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: LaborDataMartMVSProdBatch
+		 VARIABLE: 
+	LKPPosition
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+---------------------------------------------------------------------------------------------------------
+There are 4 sessions.
+---------------------------------------------------------------------------------------------------------
+Distinct $Source Connection Names:
+	Relational:LaborDataMartMVSProdBatch
+---------------------------------------------------------------------------------------------------------
+Distinct $Target Connection Names:
+	Relational:HumanResourcesDataMart
+---------------------------------------------------------------------------------------------------------
+Distinct Connection Names:
+	HumanResourcesDataMart
+	LaborDataMart
+	LaborDataMartMVSProdBatch
+	WSDOTDataLibrary
+---------------------------------------------------------------------------------------------------------

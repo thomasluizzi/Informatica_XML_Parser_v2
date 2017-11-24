@@ -1,0 +1,400 @@
+1: s_LoadPedcyc
+$Source connection value: 
+$Target connection value: 
+	Pedcyc1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_Pedcyc
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+2: s_LoadPedcycDrvr
+$Source connection value: 
+$Target connection value: 
+	Pedcyc_Drvr1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_Pedcyc_Drvr
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+3: s_LoadPedcycPasngr
+$Source connection value: 
+$Target connection value: 
+	Pedcyc_Pasngr1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_Pedcyc_Pasngr
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+4: s_LoadCntyRoadColli
+$Source connection value: 
+$Target connection value: 
+	Cnty_Road_Colli1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_Cnty_Road_Colli
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+5: s_LoadMVUnit
+$Source connection value: 
+$Target connection value: 
+	MV_Unit1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamart
+		 VARIABLE: 
+	SQ_MV_Unit
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingCollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+6: s_LoadPed
+$Source connection value: 
+$Target connection value: 
+	Ped1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_Ped
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+7: s_LoadCityStrColli
+$Source connection value: 
+$Target connection value: 
+	City_Str_Colli
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_City_Str_Colli
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+8: s_LoadCityStrName
+$Source connection value: 
+$Target connection value: 
+	City_Str_Name1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_City_Str_Name
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+9: s_LoadColliRptNum
+$Source connection value: 
+$Target connection value: 
+	Colli_Rpt_Num1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_Colli_Rpt_Num
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+10: s_LoadColliDtlInfo
+$Source connection value: 
+$Target connection value: 
+	Colli_Dtl_Info1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamart
+		 VARIABLE: 
+	SQ_Colli_Dtl_Info
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingCollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+11: s_LoadMVDrvr
+$Source connection value: 
+$Target connection value: 
+	MV_Drvr1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamart
+		 VARIABLE: 
+	SQ_MV_Drvr
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingCollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+12: s_LoadMVPasngr
+$Source connection value: 
+$Target connection value: 
+	MV_Pasngr1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_MV_Pasngr
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+13: s_stgCombineAllPeople
+$Source connection value: Relational:CollisionTrans
+$Target connection value: Relational:stagingCollisionDatamartWriter
+	stgCombineAllPeople
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: 
+		 VARIABLE: $Target
+	SQ_vw_CombineAllPeople
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: zStagingCollisionReader
+		 VARIABLE: 
+	lkpvw_MV_Drvr
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCollisionReader
+		 VARIABLE: 
+	lkpPed
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpPedCyc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpPedcyc_Drvr
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpPedcyc_Actn_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpPed_Pedcyc_Loc_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpPedcyc_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpPed_Actn_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpPed_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpDrvr_Misc_Actn_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	lkpColli_Dtl_Info
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+	SQ_Colli_Rpt_Num
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: 
+		 VARIABLE: $Source
+---------------------------------------------------------------------------------------------------------
+14: s_LoadColliUnit
+$Source connection value: 
+$Target connection value: 
+	Colli_Unit1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamart
+		 VARIABLE: 
+	SQ_Colli_Unit
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingCollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+15: s_LoadPropOwner
+$Source connection value: 
+$Target connection value: 
+	Prop_Owner1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_Prop_Owner
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+16: s_LoadORI
+$Source connection value: 
+$Target connection value: 
+	ORI1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_ORI
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+17: s_LoadComrclCarr
+$Source connection value: 
+$Target connection value: 
+	Comrcl_Carr1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamart
+		 VARIABLE: 
+	SQ_Comrcl_Carr
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: StagingCollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+18: s_stgCombineAllPeopleTARIS
+$Source connection value: 
+$Target connection value: 
+	stgCombineAllPeople
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: zStagingCollisionReader
+		 VARIABLE: 
+	SQ_v_CombineAllPeople
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpMV_Drvr_Ctrb_Circums
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpPedcyc_Ctrb_Circums
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpPed_Ctrb_Circums
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpMV_Drvr_Misc_Actions
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpPed_Pedcyc_Loc_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpPed_Pedcyc_Stat_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpPedcyc
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpPed
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpNon_MV
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpMV_Drvr
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpDrvr_Misc_Actn_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCollisionReader
+		 VARIABLE: 
+	lkpColli
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: TARISReader
+		 VARIABLE: 
+	lkpPed_Actn_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCollisionReader
+		 VARIABLE: 
+	lkpPedcyc_Actn_Typ
+		 SUBTYPE: Relational Lookup
+		 CONNECTIONNAME: zStagingCollisionReader
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+19: s_LoadMVRegOwner
+$Source connection value: 
+$Target connection value: 
+	MV_Reg_Owner1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_MV_Reg_Owner
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+20: s_LoadSRColliCurrLoc
+$Source connection value: 
+$Target connection value: 
+	SR_Colli_Curr_Loc1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_SR_Colli_Curr_Loc
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+21: s_LoadMiscStrName
+$Source connection value: 
+$Target connection value: 
+	TransportCLASTables
+		 SUBTYPE: Stored Procedure
+		 CONNECTIONNAME: Relational:StagingCollisionDataMart
+	Misc_Str_Name1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_Misc_Str_Name
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+22: s_LoadSRColliOrigLoc
+$Source connection value: 
+$Target connection value: 
+	SR_Colli_Orig_Loc
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_SR_Colli_Orig_Loc
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+23: s_LoadMiscTrfcwayColli
+$Source connection value: 
+$Target connection value: 
+	Misc_Trfcway_Colli1
+		 SUBTYPE: Relational Writer
+		 CONNECTIONNAME: stagingCollisionDatamartWriter
+		 VARIABLE: 
+	SQ_Misc_Trfcway_Colli
+		 SUBTYPE: Relational Reader
+		 CONNECTIONNAME: CollisionTrans
+		 VARIABLE: 
+---------------------------------------------------------------------------------------------------------
+There are 23 sessions.
+---------------------------------------------------------------------------------------------------------
+Distinct $Source Connection Names:
+	Relational:CollisionTrans
+---------------------------------------------------------------------------------------------------------
+Distinct $Target Connection Names:
+	Relational:stagingCollisionDatamartWriter
+---------------------------------------------------------------------------------------------------------
+Distinct Connection Names:
+	CollisionTrans
+	Relational
+	StagingCollisionTrans
+	TARISReader
+	stagingCollisionDatamart
+	stagingCollisionDatamartWriter
+	zStagingCollisionReader
+---------------------------------------------------------------------------------------------------------
